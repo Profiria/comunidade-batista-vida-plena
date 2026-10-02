@@ -269,24 +269,35 @@ h1, h2, h3, h4, h5, h6,
    RESPONSIVIDADE (MOBILE)
    ========================================================================== */
 @media (max-width: 768px) {
-  .hamburger {
+  hamburger {
     display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
   }
-
   .nav-menu {
+    .nav-menu {
     display: none;
     flex-direction: column;
     width: 100%;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--color-primary);
-    padding: 1.5rem;
+    background-color: var(--color-primary, #0b1f3a);
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
   }
 
   .nav-menu.active {
-    display: flex;
+    display: flex !important;
   }
+   .nav-menu li {
+    width: 100%;
+    text-align: center;
+    margin: 0.8rem 0;
+   }
 
   .hero h1 {
     font-size: 1.8rem;
