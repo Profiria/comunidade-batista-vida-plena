@@ -1,31 +1,50 @@
+/* ==========================================================================
+   MENU GAVETA LATERAL (ESTILO DRAWER/CHAT) - APENAS PARA CELULAR
+   ========================================================================== */
 @media (max-width: 768px) {
+
+  /* Gaveta do menu escondida fora da tela à esquerda */
   .nav-menu {
-    display: none !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    position: absolute !important;
-    top: 100% !important; /* Ajuste para cair logo abaixo do cabeçalho */
-    left: 0 !important;
-    background-color: #0b1f3a !important;
-    padding: 1.5rem 0 !important;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
-    z-index: 99999 !important; /* Força ficar por cima de TUDO */
-  }
-
-  /* QUANDO O CLIQUE ACONTECE */
-  .nav-menu.active {
     display: flex !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: -280px !important;       /* Esconde o menu totalmente à esquerda da tela */
+    width: 280px !important;        /* Largura confortável da gaveta lateral */
+    height: 100vh !important;       /* Ocupa 100% da altura da tela */
+    background-color: #0b1f3a !important; /* Azul noturno da igreja */
+    padding: 5rem 1.5rem 2rem 1.5rem !important;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4) !important;
+    z-index: 999999 !important;    /* Fica por cima de qualquer elemento */
+    transition: left 0.3s ease-in-out !important; /* Animação suave deslizando */
+    overflow-y: auto !important;   /* Permite rolar se a tela for pequena */
   }
 
+  /* Quando clica nas três linhas, o menu desliza para dentro da tela */
+  .nav-menu.active {
+    left: 0 !important;            /* Desliza a gaveta para a posição visível */
+  }
+
+  /* Estilização e alinhamento dos itens na gaveta */
   .nav-menu li {
     width: 100% !important;
-    text-align: center !important;
-    margin: 0.8rem 0 !important;
+    margin: 0.6rem 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
 
   .nav-link {
     display: block !important;
+    padding: 0.8rem 0.5rem !important;
     color: #ffffff !important;
     font-size: 1.1rem !important;
+    text-decoration: none !important;
+    text-align: left !important;
+    font-weight: 500 !important;
+  }
+
+  /* Destaque para a página atual na gaveta */
+  .nav-link.active {
+    color: #32bcad !important; /* Verde-água de destaque */
+    font-weight: 700 !important;
   }
 }
