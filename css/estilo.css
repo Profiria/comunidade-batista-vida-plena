@@ -488,14 +488,13 @@ body {
 
 /* Bloco da Missão Central */
 .mission-banner {
-  background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%);
-  color: #ffffff;
-  padding: 2.5rem 1.5rem;
-  border-radius: var(--radius-md, 12px);
+ background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%) !important;
+  color: #ffffff !important;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  margin-bottom: 3rem;
-  border-left: 6px solid #6d8193;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
 }
 
 .mission-quote {
@@ -509,7 +508,7 @@ body {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #a0b2c6;
+  color: #cbd5e1 !important;
   font-weight: 600;
 }
 
@@ -696,12 +695,13 @@ body {
 
 /* Banner introdutório da EBD */
 .ebd-intro-banner {
-  background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%);
-  color: #ffffff;
-  padding: 2.2rem 2rem;
-  border-radius: var(--radius-md, 12px);
-  margin-bottom: 3rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%) !important;
+  color: #ffffff !important;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
 }
 
 .ebd-intro-banner h2 {
@@ -711,9 +711,10 @@ body {
 }
 
 .ebd-intro-banner p {
-  font-size: 1rem;
-  color: #ededed;
-  line-height: 1.6;
+  color: #cbd5e1 !important; /* Cinza claro de altíssimo contraste */
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  margin-top: 0.5rem;
 }
 
 /* Cartões das Classes */
