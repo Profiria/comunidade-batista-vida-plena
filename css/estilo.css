@@ -1,8 +1,8 @@
-/* Importação das Fontes: Montserrat (para títulos) e Inter (para leitura nítida) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+/* Importação da fonte Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 /* ==========================================================================
-   DESIGN SYSTEM - TOKENS ORIGINAIS
+   DESIGN SYSTEM - TOKENS
    ========================================================================== */
 :root {
   /* Cores Extraídas do Manual da Marca */
@@ -16,9 +16,8 @@
   /* Gradients */
   --gradient-blue: linear-gradient(135deg, #0b1f3a 0%, #004080 100%);
   
-  /* Tipografia: Inter para o texto base do site */
-  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-family-title: 'Montserrat', sans-serif;
+  /* Tipografia */
+  --font-family-base: 'Montserrat', sans-serif;
   
   /* Espaçamentos e Sombras */
   --radius-sm: 6px;
@@ -38,12 +37,6 @@ body {
   background-color: var(--color-bg-light);
   color: var(--color-text-dark);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, .section-title {
-  font-family: var(--font-family-title);
 }
 
 /* ==========================================================================
@@ -69,7 +62,7 @@ h1, h2, h3, h4, .section-title {
   display: flex;
   align-items: center;
   text-decoration: none;
-  background-color: transparent;
+  background-color: transparent; /* Remove o fundo branco */
   padding: 0;
 }
 
@@ -100,7 +93,7 @@ h1, h2, h3, h4, .section-title {
 }
 
 .nav-link:hover {
-  color: var(--color-secondary);
+  color: var(--color-hover);   /* Mudança de cor ao passar o mouse */
 }
 
 .nav-link.active {
@@ -122,28 +115,6 @@ h1, h2, h3, h4, .section-title {
   height: 3px;
   background-color: var(--color-white);
   border-radius: 2px;
-}
-
-/* Ícones das Redes Sociais no Cabeçalho */
-.header-social {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  margin-left: 1.5rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  padding-left: 1.5rem;
-}
-
-.social-icon {
-  color: var(--color-white);
-  font-size: 1.3rem;
-  transition: transform 0.2s ease, color 0.3s ease;
-  text-decoration: none;
-}
-
-.social-icon:hover {
-  color: var(--color-secondary);
-  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -171,7 +142,6 @@ h1, h2, h3, h4, .section-title {
   color: #6d8193;            /* Cinza azulado da paleta */
   margin-bottom: 0.8rem;
 }
-
 .hero-subtext {
   font-size: 1rem;
   color: #334155;            /* Texto secundário escuro legível */
@@ -180,7 +150,7 @@ h1, h2, h3, h4, .section-title {
 }
 
 /* ==========================================================================
-   CONTAINER E SEÇÃO PREGAÇÃO / YOUTUBE
+   SEÇÃO PREGAÇÃO / YOUTUBE
    ========================================================================== */
 .container {
   max-width: 1100px;
@@ -204,6 +174,7 @@ h1, h2, h3, h4, .section-title {
   margin-bottom: 3rem;
 }
 
+/* Embed de Vídeo Responsivo (Aspect Ratio 16:9) */
 .video-responsive {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -231,19 +202,152 @@ h1, h2, h3, h4, .section-title {
 }
 
 /* ==========================================================================
-   CARROSSEL DE EVENTOS / SLIDER
+   CARDS DE ACESSO RÁPIDO
    ========================================================================== */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.btn-card {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-card:hover {
+  background-color: var(--color-secondary);
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-primary);
+    padding: 1.5rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+/* Container do Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Imagem da Logomarca */
+.logo-img {
+  height: 45px; /* Ajusta a altura conforme o tamanho ideal */
+  width: auto;  /* Mantém a proporção da imagem */
+  object-fit: contain;
+}
+/* ==========================================================================
+   ÍCONES DAS REDES SOCIAIS NO CABEÇALHO
+   ========================================================================== */
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-left: 1.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.2); /* Linha divisória suave */
+  padding-left: 1.5rem;
+}
+
+.social-icon {
+  color: var(--color-white);
+  font-size: 1.3rem;
+  transition: transform 0.2s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: var(--color-hover);
+  transform: translateY(-2px); /* Efeito suave de elevação ao passar o rato */
+}
+
+/* Ajuste Responsivo para Mobile */
+@media (max-width: 768px) {
+  .header-social {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}
+  /* ==========================================================================
+   CARROSSEL DE EVENTOS / SLIDER (CORRIGIDO)
+   ========================================================================== */
+
+/* Container Principal do Carrossel */
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 450px; /* Altura ideal fixa para não achatar os flyers */
   border-radius: var(--radius-md, 12px);
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   margin-bottom: 3rem;
-  background-color: #0b1f3a;
+  background-color: #0b1f3a; /* Fundo escuro oficial para preencher bordas */
 }
 
+/* Regra Base do Slide (Esconde os inativos) */
 .carousel-slide {
   position: absolute;
   top: 0;
@@ -258,22 +362,25 @@ h1, h2, h3, h4, .section-title {
   justify-content: center;
 }
 
+/* Slide Ativo (Mostra na tela) */
 .carousel-slide.active {
   opacity: 1;
   visibility: visible;
   z-index: 1;
 }
 
+/* Imagens dos Slides (Mostrar a arte 100% sem cortes) */
 .carousel-slide img,
 .slide-bg-img,
 .slide-full-img {
   width: 100%;
   height: 100%;
-  object-fit: contain !important;
+  object-fit: contain !important; /* Preserva a proporção exata da arte */
   object-position: center;
   display: block;
 }
 
+/* Textos sobrepostos (caso o slide use texto em HTML) */
 .slide-content {
   position: absolute;
   bottom: 2rem;
@@ -281,7 +388,7 @@ h1, h2, h3, h4, .section-title {
   right: 2rem;
   z-index: 2;
   color: #ffffff;
-  background: rgba(11, 31, 58, 0.75);
+  background: rgba(11, 31, 58, 0.75); /* Fundo sutil para leitura */
   padding: 1.5rem;
   border-radius: 8px;
   backdrop-filter: blur(4px);
@@ -327,6 +434,7 @@ h1, h2, h3, h4, .section-title {
   background-color: #ededed;
 }
 
+/* Botões de Avançar/Voltar */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -349,6 +457,7 @@ h1, h2, h3, h4, .section-title {
 .carousel-btn.prev { left: 15px; }
 .carousel-btn.next { right: 15px; }
 
+/* Indicadores (Dots) */
 .carousel-dots {
   position: absolute;
   bottom: 12px;
@@ -373,60 +482,11 @@ h1, h2, h3, h4, .section-title {
   width: 22px;
   border-radius: 10px;
 }
-
 /* ==========================================================================
-   CARDS DE ACESSO RÁPIDO & PILARES
+   PÁGINA SOBRE NÓS
    ========================================================================== */
-.grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
 
-.card {
-  background-color: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  text-align: center;
-  box-shadow: var(--shadow-card);
-  border-top: 4px solid var(--color-primary);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-}
-
-.icon-card {
-  font-size: 2.2rem;
-  color: #0b1f3a;
-  margin-bottom: 1rem;
-}
-
-.btn-card {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.btn-card:hover {
-  background-color: var(--color-secondary);
-}
-
-/* ==========================================================================
-   PÁGINA SOBRE NÓS & HISTÓRIA
-   ========================================================================== */
+/* Bloco da Missão Central */
 .mission-banner {
   background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%);
   color: #ffffff;
@@ -453,6 +513,67 @@ h1, h2, h3, h4, .section-title {
   font-weight: 600;
 }
 
+/* Ícones nos Cards dos Pilares */
+.icon-card {
+  font-size: 2.2rem;
+  color: #0b1f3a;
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   LIDERANÇA PASTORAL & BLOCOS LARGOS (100% de Largura)
+   ========================================================================== */
+.leadership-container {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.leader-card {
+  background: #ffffff;
+  border-radius: var(--radius-md, 12px);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  width: 100%; /* Ocupa 100% da largura do container, alinhando com as pontas dos pilares */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #0b1f3a;
+}
+
+.leader-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: #ededed;
+  color: #0b1f3a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.2rem auto;
+}
+
+.leader-card h3 {
+  color: #0b1f3a;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.leader-role {
+  display: block;
+  font-size: 0.9rem;
+  color: #6d8193;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.leader-card p {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 800px; /* Mantém o texto agradável de ler ao centro */
+  margin: 0 auto;
+}
+
+/* Bloco para "Nossa História" (Card Largo de 100%) */
 .history-card {
   background: #ffffff;
   border-radius: var(--radius-md, 12px);
@@ -466,73 +587,18 @@ h1, h2, h3, h4, .section-title {
   font-size: 1rem;
 }
 
-/* ==========================================================================
-   LIDERANÇA PASTORAL
-   ========================================================================== */
-.pastors-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  justify-content: center;
-  align-items: stretch;
-}
-
-@media (max-width: 992px) {
-  .pastors-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .pastors-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.pastor-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-top: 4px solid #0b1f3a;
-  padding: 2rem 1.5rem;
-}
-
-.pastor-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.pastor-info {
-  text-align: center;
-}
-
-.pastor-info h3 {
-  color: #0b1f3a;
-  font-size: 1.3rem;
-  margin-bottom: 0.3rem;
-}
-
-.pastor-role {
-  display: inline-block;
-  color: #6d8193;
-  font-weight: 600;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 1rem;
-}
-
-.pastor-info p {
-  color: #475569;
-  font-size: 0.95rem;
+.history-card p {
+  text-align: left;
   line-height: 1.6;
-  text-align: justify;
-}
+  margin-bottom: 1rem;
+  color: #334155;
 
+}
 /* ==========================================================================
    PÁGINA DE PROGRAMAÇÃO & TABELAS RESPONSIVAS
    ========================================================================== */
+
+/* Container da Tabela com Rolagem para Telas Pequenas */
 .table-responsive {
   width: 100%;
   overflow-x: auto;
@@ -568,10 +634,12 @@ h1, h2, h3, h4, .section-title {
   background-color: #f8fafc;
 }
 
+/* Linha em Destaque para o Culto Principal */
 .schedule-table tr.highlight-row {
   background-color: #f1f5f9;
 }
 
+/* Badge de Horário */
 .badge-time {
   background-color: #6d8193;
   color: #ffffff;
@@ -581,6 +649,7 @@ h1, h2, h3, h4, .section-title {
   font-size: 0.85rem;
 }
 
+/* Cartões de Eventos com Data em Destaque */
 .event-card {
   display: flex;
   align-items: center;
@@ -628,10 +697,11 @@ h1, h2, h3, h4, .section-title {
   align-items: center;
   gap: 0.5rem;
 }
-
 /* ==========================================================================
    PÁGINA DA ESCOLA BÍBLICA (EBD)
    ========================================================================== */
+
+/* Banner introdutório da EBD */
 .ebd-intro-banner {
   background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%);
   color: #ffffff;
@@ -653,6 +723,7 @@ h1, h2, h3, h4, .section-title {
   line-height: 1.6;
 }
 
+/* Cartões das Classes */
 .ebd-class-card {
   text-align: left;
   display: flex;
@@ -700,6 +771,7 @@ h1, h2, h3, h4, .section-title {
   line-height: 1.5;
 }
 
+/* Lista de Downloads de Materiais */
 .download-list {
   display: flex;
   flex-direction: column;
@@ -726,7 +798,7 @@ h1, h2, h3, h4, .section-title {
 
 .ppt-icon {
   font-size: 1.8rem;
-  color: #d97706;
+  color: #d97706; /* Cor laranja característica de apresentações/slides */
 }
 
 .download-info h4 {
@@ -758,10 +830,11 @@ h1, h2, h3, h4, .section-title {
 .btn-download-sm:hover {
   background-color: #6d8193;
 }
-
 /* ==========================================================================
    PÁGINA DE CONTATO
    ========================================================================== */
+
+/* Grid em 2 Colunas no Desktop e 1 Coluna no Celular */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -791,6 +864,7 @@ h1, h2, h3, h4, .section-title {
   gap: 0.6rem;
 }
 
+/* Estilização do Formulário */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -854,6 +928,7 @@ h1, h2, h3, h4, .section-title {
   background-color: #6d8193;
 }
 
+/* Itens de Informação de Contato */
 .info-item {
   display: flex;
   align-items: flex-start;
@@ -880,49 +955,74 @@ h1, h2, h3, h4, .section-title {
 }
 
 /* ==========================================================================
-   RODAPÉ
+   SEÇÃO LIDERANÇA PASTORAL (3 PASTORES ALINHADOS)
    ========================================================================== */
-.footer {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  text-align: center;
-  padding: 2rem 1.5rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
+
+.pastors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch; /* Garante que todos os cartões tenham a mesma altura */
 }
 
-/* ==========================================================================
-   RESPONSIVIDADE (MOBILE)
-   ========================================================================== */
+/* Em telas médias ou tablets (ex: até 992px), fica em 2 ou 1 coluna */
+@media (max-width: 992px) {
+  .pastors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* Em celulares (até 768px), fica 1 cartão por linha */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
+  .pastors-grid {
+    grid-template-columns: 1fr;
   }
+}
+.pastor-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #0b1f3a;
+  padding: 2rem 1.5rem;
+}
 
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--color-primary);
-    padding: 1.5rem;
-  }
+.pastor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
 
-  .nav-menu.active {
-    display: flex;
-  }
+.pastor-info {
+  text-align: center;
+}
 
-  .hero h1 {
-    font-size: 1.8rem;
-  }
+.pastor-info h3 {
+  color: #0b1f3a;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
 
-  .header-social {
-    border-left: none;
-    padding-left: 0;
-    margin-left: 0;
-    margin-top: 1rem;
-    justify-content: center;
-  }
+.pastor-role {
+  display: inline-block;
+  color: #6d8193;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.pastor-info p {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: justify; /* Alinha o texto do texto pastoral deixando a leitura agradável */
+}
+/* ==========================================================================
+   PADRONIZAÇÃO GLOBAL DE TEXTOS E PARÁGRAFOS
+   ========================================================================== */
+p {
+  color: #334155 !important;
+  line-height: 1.6;
 }
