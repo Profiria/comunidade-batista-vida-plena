@@ -3,22 +3,13 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', function() {
-  const menuToggle = document.getElementById('menu-toggle');
+
+  // 1. MENU HAMBÚRGUER (Abre e fecha a lista no celular)
+  const menuToggle = document.getElementById('menu-toggle') || document.getElementById('hamburger');
   const navMenu = document.getElementById('nav-menu');
 
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', function() {
-      navMenu.classList.toggle('active');
-    });
-  }
-});
-
-  // 1. MENU HAMBÚRGUER (Todas as páginas)
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
-
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
   }
@@ -29,12 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextBtn = document.getElementById('nextBtn');
   const dotsContainer = document.getElementById('carouselDots');
 
-  // Só executa a lógica se o carrossel existir na página atual
   if (slides.length > 0 && prevBtn && nextBtn && dotsContainer) {
     let currentSlide = 0;
     let slideInterval;
 
     // Criar indicadores (dots) dinamicamente
+    dotsContainer.innerHTML = '';
     slides.forEach((_, index) => {
       const dot = document.createElement('div');
       dot.classList.add('dot');
@@ -85,10 +76,9 @@ document.addEventListener('DOMContentLoaded', function() {
       resetTimer();
     });
 
-    // Iniciar rotação automática a cada 5 segundos
+    // Iniciar rotação automática
     slideInterval = setInterval(nextSlide, 5000);
   }
-
 });
 
 // 3. FUNÇÃO DE COPIAR A CHAVE PIX (Página contribuicao.html)
