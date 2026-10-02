@@ -1084,3 +1084,34 @@ h1, h2, h3, h4, h5, h6,
   transform: translateX(-50%) !important;
   z-index: 10 !important;
 }
+
+   /* ==========================================================================
+   ENQUADRAMENTO PERFEITO DAS IMAGENS NO CARROSSEL
+   ========================================================================== */
+.carousel-container {
+  height: 450px !important;
+  max-height: 450px !important;
+  position: relative !important;
+  overflow: hidden !important; /* Corta qualquer elemento que tente sair da caixa */
+  background-color: #0b1f3a !important; /* Fundo azul noturno para preencher as laterais */
+}
+
+.carousel-slide {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Enquadra a imagem inteira mantendo a proporção original */
+.carousel-slide img,
+.slide-full-img,
+.slide-bg-img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important; /* Garante que a imagem inteira fique visível sem esticar */
+  margin: auto !important;
+}
