@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. MENU HAMBÚRGUER (Atende tanto id="hamburger" quanto id="menu-toggle")
+  // 1. MENU HAMBÚRGUER (Atende id="hamburger" e id="menu-toggle")
   const hamburger = document.getElementById('hamburger') || document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
 
@@ -14,44 +14,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. LÓGICA DO CARROSSEL (Apenas na index.html)
+  // 2. LÓGICA DO CARROSSEL (index.html)
   const slides = document.querySelectorAll('.carousel-slide');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const dotsContainer = document.getElementById('carouselDots');
 
-  // Só executa se o carrossel existir na página atual
-  if (slides.length > 0 && prevBtn && nextBtn && dotsContainer) {
+  // Só executa se existirem slides na página
+  if (slides.length > 0) {
     let currentSlide = 0;
     let slideInterval;
-
-    // Cria os pontinhos (dots) de navegação dinamicamente
-    dotsContainer.innerHTML = '';
-    slides.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(index));
-      dotsContainer.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll('.dot');
 
     function updateCarousel() {
       slides.forEach((slide, index) => {
         if (index === currentSlide) {
           slide.classList.add('active');
+          slide.style.display = 'flex'; // Força a exibição apenas do slide ativo
         } else {
           slide.classList.remove('active');
+          slide.style.display = 'none'; // Esconde os outros para não empilhar
         }
       });
 
-      dots.forEach((dot, index) => {
-        if (index === currentSlide) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
-        }
+      // Atualiza os pontinhos (se existirem)
+      if (dotsContainer) {
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+          if (index === currentSlide) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+    }
+
+    // Cria os pontinhos dinamicamente se o container existir
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
       });
     }
 
@@ -72,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startTimer() {
-      slideInterval = setInterval(nextSlide, 5000); // Troca a cada 5 segundos
+      slideInterval = setInterval(nextSlide, 5000);
     }
 
     function resetTimer() {
@@ -80,18 +86,22 @@ document.addEventListener('DOMContentLoaded', () => {
       startTimer();
     }
 
-    // Eventos dos botões Anterior / Próximo
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      resetTimer();
-    });
+    // Eventos dos botões (se existirem)
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetTimer();
+      });
+    }
 
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      resetTimer();
-    });
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetTimer();
+      });
+    }
 
-    // Inicia o carrossel automático
+    // Executa imediatamente para esconder os outros slides e ativar o primeiro
     updateCarousel();
     startTimer();
   }
