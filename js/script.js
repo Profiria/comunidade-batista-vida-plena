@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+
   // 1. MENU HAMBÚRGUER (Todas as páginas)
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('nav-menu');
@@ -22,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
       navMenu.classList.toggle('active');
     });
   }
+
 
   // 2. LÓGICA DO CARROSSEL (Apenas na index.html)
   const slides = document.querySelectorAll('.carousel-slide');
