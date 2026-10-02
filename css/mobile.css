@@ -1,43 +1,31 @@
-/* ==========================================================================
-   AJUSTE DE POSIÇÃO DO MENU MOBILE (FIXO E LOGO ABAIXO DO TOPO)
-   ========================================================================== */
 @media (max-width: 768px) {
-
-  /* Garantir que o container do topo segure o menu de forma relativa */
-  header, .header, nav, .navbar {
-    position: relative !important;
-  }
-
-  /* O menu abre logo abaixo da barra superior */
   .nav-menu {
     display: none !important;
     flex-direction: column !important;
     width: 100% !important;
     position: absolute !important;
-    top: 100% !important;          /* Cola imediatamente abaixo da barra do topo */
+    top: 100% !important; /* Ajuste para cair logo abaixo do cabeçalho */
     left: 0 !important;
-    background-color: #0b1f3a !important; /* Azul noturno */
-    padding: 1rem 0 !important;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3) !important;
-    z-index: 99999 !important;     /* Fica por cima de qualquer título ou banner */
+    background-color: #0b1f3a !important;
+    padding: 1.5rem 0 !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
+    z-index: 99999 !important; /* Força ficar por cima de TUDO */
   }
 
-  /* Exibe o menu quando ativo */
+  /* QUANDO O CLIQUE ACONTECE */
   .nav-menu.active {
     display: flex !important;
   }
 
-  /* Espaçamento mais compacto para caber todos os links na tela do celular */
   .nav-menu li {
     width: 100% !important;
     text-align: center !important;
-    margin: 0.3rem 0 !important;
+    margin: 0.8rem 0 !important;
   }
 
   .nav-link {
     display: block !important;
-    padding: 0.5rem 0 !important;
     color: #ffffff !important;
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
   }
 }
