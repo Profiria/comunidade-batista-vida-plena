@@ -39,6 +39,14 @@ body {
   line-height: 1.6;
 }
 
+/* MONTSERRAT EM TODOS OS TÍTULOS E SUBTÍTULOS */
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.mission-quote,
+.contact-title {
+  font-family: var(--font-family-title) !important;
+}
+
 /* ==========================================================================
    CABEÇALHO & NAV
    ========================================================================== */
