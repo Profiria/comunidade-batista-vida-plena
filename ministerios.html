@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Áreas - Comunidade Batista Vida Plena</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <!-- Ícones do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO / NAVEGAÇÃO -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+        <img src="imagem/logo-cinza.png" alt="Comunidade Batista Vida Plena" class="logo-img">
+      </a>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="sobre.html" class="nav-link">Sobre Nós</a></li>
+        <li><a href="programacao.html" class="nav-link">Programação</a></li>
+        <li><a href="ebd.html" class="nav-link">Escola Bíblica</a></li>
+        <li><a href="ministerios.html" class="nav-link active">Áreas</a></li>
+        <li><a href="contribuicao.html" class="nav-link">Contribuição</a></li>
+        <li><a href="missoes.html" class="nav-link">Missões</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+      </ul>
+
+      <div class="header-social">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container" style="margin-top: 2.5rem;">
+
+    <!-- BANNER DE APRESENTAÇÃO -->
+    <div class="ebd-intro-banner">
+      <h2 style="text-align: center;">Nossas Áreas</h2>
+      <p>Servir a Deus é colocar nossos dons e talentos à disposição da igreja e da comunidade. Conheça as nossas áreas de atuação e saiba como fazer parte!</p>
+    </div>
+
+    <!-- GRID DE MINISTÉRIOS -->
+    <div class="grid-cards" style="margin-bottom: 3.5rem;">
+
+      <!-- Ministério de Louvor -->
+      <div class="card ministry-card">
+        <i class="fa-solid fa-music icon-card"></i>
+        <h3>Louvor & Adoração</h3>
+        <p>Conduz a igreja em momentos de adoração e louvor através da música, instrumentos e artes técnicas de som e transmissão.</p>
+      </div>
+
+      <!-- Ministério Kids -->
+      <div class="card ministry-card">
+        <i class="fa-solid fa-children icon-card"></i>
+        <h3>Ministério Infantil (Kids)</h3>
+        <p>Acolhe e ensina as crianças com uma linguagem acessível, promovendo o aprendizado da Bíblia com alegria e segurança.</p>
+      </div>
+
+      <!-- Ministério de Jovens -->
+      <div class="card ministry-card">
+        <i class="fa-solid fa-users-rays icon-card"></i>
+        <h3>Juventude (Conectados)</h3>
+        <p>Espaço voltado para adolescentes e jovens, com cultos, encontros de comunhão, projetos sociais e estudos práticos da Palavra.</p>
+      </div>
+
+      <!-- Ministério de Casais -->
+      <div class="card ministry-card">
+        <i class="fa-solid fa-rings-wedding icon-card"></i>
+        <h3>Famílias & Casais</h3>
+        <p>Fortalece os laços matrimoniais e familiares por meio de encontros, palestras, palestras de edificação e aconselhamento.</p>
+      </div>
+
+      <!-- Ação Social -->
+      <div class="card ministry-card">
+        <i class="fa-solid fa-hand-holding-heart icon-card"></i>
+        <h3>Ação Social & Acolhimento</h3>
+        <p>Atua no amparo a famílias em situação de vulnerabilidade, arrecadação de alimentos e recepção aos visitantes nos cultos.</p>
+      </div>
+
+      <!-- Pequenos Grupos / Células -->
+      <div class="card ministry-card">
+        <i class="fa-solid fa-house-chimney-window icon-card"></i>
+        <h3>Pequenos Grupos (PGM)</h3>
+        <p>Promove a comunhão nos lares, fortalecendo amizades, oração e o estudo bíblico em pequenos grupos pela cidade.</p>
+      </div>
+
+    </div>
+
+    <!-- CHAMADA PARA AÇÃO (VOLUNTARIADO) -->
+    <div class="history-card" style="text-align: center; border-left-color: #0b1f3a;">
+      <h3 style="color: #0b1f3a; margin-bottom: 0.5rem; font-size: 1.3rem;">Deseja servir em um dos ministérios?</h3>
+      <p style="margin-bottom: 1.2rem;">Fale com a nossa equipe pastoral ou envie uma mensagem pela nossa página de contato para entender como voluntariar-se.</p>
+      <a href="contato.html" class="btn-download" style="display: inline-flex; width: auto;">
+        <i class="fa-solid fa-paper-plane"></i> Enviar Mensagem
+      </a>
+    </div>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <p>&copy; Comunidade Batista Vida Plena — Viver • Amar • Servir</p>
+    <p>QE 32, Conjunto A, casa 07 - Guará II</p>
+    <p>Projeto acadêmico de Front-End Web</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

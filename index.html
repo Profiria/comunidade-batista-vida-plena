@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunidade Batista Vida Plena</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <!-- Ícones do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO / NAVEGAÇÃO -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+  <img src="imagem/logo-cinza.png" alt="Comunidade Batista Vida Plena" class="logo-img">
+</a>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link active">Início</a></li>
+        <li><a href="sobre.html" class="nav-link">Sobre Nós</a></li>
+        <li><a href="programacao.html" class="nav-link">Programação</a></li>
+        <li><a href="ebd.html" class="nav-link">Escola Bíblica</a></li>
+        <li><a href="ministerios.html" class="nav-link">Áreas</a></li>
+        <li><a href="contribuicao.html" class="nav-link">Contribuição</a></li>
+        <li><a href="missoes.html" class="nav-link">Missões</a></li>
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+      </ul>
+      <!-- ÍCONES DAS REDES SOCIAIS -->
+      <div class="header-social">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/@CBVidaPlena" target="_blank" rel="noopener noreferrer" class="social-icon" title="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </nav>
+    
+  </header>
+
+  <!-- BANNER HERO COM NOVO CONTRASTE -->
+  <section class="hero">
+    <h1>Comunidade Batista Vida Plena</h1>
+    <p class="tagline">VIVER • AMAR • SERVIR</p>
+    <p class="hero-subtext">Conhecer a Jesus e fazê-lo conhecido</p>
+  </section>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container">
+
+    <!-- CARROSSEL DE EVENTOS / AVISOS -->
+    <div class="carousel-container">
+      
+      <div class="carousel-slide active">
+        <img src="imagem/serie-contentamento.png" alt="Culto de Oração - Quarta feira às 19h30 no Espaço" class="slide-full-img">
+
+      </div>
+
+      <div class="carousel-slide">
+       <img src="imagem/slide-culto-oracao.png" alt="Série de mensagens - Vivendo o contentamento" class="slide-full-img">
+      </div>
+
+      <div class="carousel-slide">
+        <img src="imagem/coral.png" alt="Se você gosta de cantar, venha fazer parte do coral Vida Plena" class="slide-full-img">
+      </div>
+
+      <!-- BOTÕES DE NAVEGAÇÃO (ANTERIOR / PRÓXIMO) -->
+      <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">&#10094;</button>
+      <button class="carousel-btn next" id="nextBtn" aria-label="Próximo">&#10095;</button>
+
+      <!-- INDICADORES (PONTINHOS) -->
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+    <!-- PREGAÇÃO DA SEMANA (YOUTUBE EMBED) -->
+    <h2 class="section-title">Pregação da Semana</h2>
+    <div class="video-card">
+      <div class="video-responsive">
+        <iframe
+        src="https://www.youtube.com/embed/m3wQJsX1Azo?si=NO-q2k3wVoO9Psrv" 
+        title="Transmissão ao vivo / Pregação da semana" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-info">
+        <h3>Culto de Celebração - Domingo</h3>
+        <p>Acompanhe a mensagem desta semana e compartilhe com sua família e amigos.</p>
+      </div>
+    </div>
+
+    <!-- ACESSO RÁPIDO PARA OUTRAS SEÇÕES -->
+    <h2 class="section-title">Nossa Comunidade</h2>
+    <div class="grid-cards">
+      
+      <div class="card">
+        <h3>Programação</h3>
+        <p>Fique por dentro de todos os nossos cultos, reuniões de oração e eventos semanais.</p>
+        <a href="programacao.html" class="btn-card">Ver Agenda</a>
+      </div>
+
+      <div class="card">
+        <h3>Escola Bíblica</h3>
+        <p>Acesse os materiais de estudo, avisos das turmas e baixe os slides das aulas da EBD.</p>
+        <a href="ebd.html" class="btn-card">Acessar Slides</a>
+      </div>
+
+      <div class="card">
+        <h3>Pedidos de Oração</h3>
+        <p>Precisa de oração ou aconselhamento? Envie sua mensagem para nossa equipe pastoral.</p>
+        <a href="contato.html" class="btn-card">Enviar Pedido</a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <p>&copy; Comunidade Batista Vida Plena — Viver • Amar • Servir</p>
+    <p>QE 32, Conjunto A, casa 07 - Guará II</p>
+    <p>Projeto acadêmico de Front-End Web</p>
+  </footer>
+
+ <!-- SCRIPT EXTERNO UNIFICADO -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>

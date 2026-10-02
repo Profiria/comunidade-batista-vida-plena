@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programação - Comunidade Batista Vida Plena</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <!-- Ícones do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO / NAVEGAÇÃO -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="logo-container">
+        <img src="imagem/logo-cinza.png" alt="Comunidade Batista Vida Plena" class="logo-img">
+      </a>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="sobre.html" class="nav-link">Sobre Nós</a></li>
+        <li><a href="programacao.html" class="nav-link active">Programação</a></li>
+        <li><a href="ebd.html" class="nav-link">Escola Bíblica</a></li>
+        <li><a href="ministerios.html" class="nav-link">Áreas</a></li>
+        <li><a href="contribuicao.html" class="nav-link">Contribuição</a></li>
+        <li><a href="missoes.html" class="nav-link">Missões</a></li> 
+        <li><a href="contato.html" class="nav-link">Contato</a></li>
+      </ul>
+
+      <div class="header-social">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container" style="margin-top: 2.5rem;">
+
+    <!-- TABELA DE PROGRAMAÇÃO SEMANAL -->
+    <h2 class="section-title">Agenda Semanal</h2>
+    <div class="table-responsive">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Horário</th>
+            <th>Atividade / Culto</th>
+            <th>Local</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Domingo</strong></td>
+            <td><span class="badge-time">17h00</span></td>
+            <td>Escola Bíblica Dominical (EBD)</td>
+            <td>Salas de Aula / Templo</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>Domingo</strong></td>
+            <td><span class="badge-time">18h15</span></td>
+            <td><strong>Culto de Celebração & Adoração</strong></td>
+            <td>Templo Principal</td>
+          </tr>
+          <tr>
+            <td><strong>Terça-feira</strong></td>
+            <td><span class="badge-time">19h30</span></td>
+            <td>Pequeno Grupo / PGM</td>
+            <td>No templo</td>
+          </tr>
+          <tr>
+            <td><strong>Quarta-feira</strong></td>
+            <td><span class="badge-time">19h30</span></td>
+            <td>Culto de Oração</td>
+            <td>Templo Principal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SEÇÃO: PRÓXIMOS EVENTOS ESPECIAIS -->
+    <h2 class="section-title" style="margin-top: 3.5rem;">Próximos Eventos</h2>
+    <div class="grid-cards" style="margin-bottom: 3rem;">
+      
+      <div class="card event-card">
+        <div class="event-date">
+          <span class="day">04</span>
+          <span class="month">OUT</span>
+        </div>
+        <div class="event-details">
+          <h3>Série - Vivendo o contentamento</h3>
+          <p><i class="fa-regular fa-clock"></i> 18h15</p>
+          <p><i class="fa-solid fa-location-dot"></i> Templo Principal</p>
+        </div>
+      </div>
+
+      <div class="card event-card">
+        <div class="event-date">
+        <span class="day"> </span>
+          <span class="month"> </span>
+        </div>
+        <div class="event-details">
+          <h3>Curso Casais Felizes</h3>
+          <p><i class="fa-regular fa-clock"></i> 19h30</p>
+          <p>Inscrição aberta</p>
+        </div>
+      </div>
+
+      <div class="card event-card">
+        <div class="event-date">
+          <span class="day">25</span>
+          <span class="month">DEZ</span>
+        </div>
+        <div class="event-details">
+          <h3>Cantata de Natal</h3>
+          <p><i class="fa-regular fa-clock"></i> 19h00</p>
+          <p><i class="fa-solid fa-location-dot"></i> Templo Principal</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <p>&copy; Comunidade Batista Vida Plena — Viver • Amar • Servir</p>
+    <p>QE 32, Conjunto A, casa 07 - Guará II</p>
+    <p>Projeto acadêmico de Front-End Web</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
