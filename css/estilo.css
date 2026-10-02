@@ -1034,84 +1034,31 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ==========================================================================
-   CORREÇÃO DEFINITIVA DO CARROSSEL (TRAVA DE EMPILHAMENTO)
+   AJUSTE ISOLADO DO CARROSSEL (NÃO AFETA OUTRAS PÁGINAS)
    ========================================================================== */
 .carousel-container {
-  position: relative !important;
-  width: 100% !important;
-  height: 450px !important;
-  max-height: 450px !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-  background-color: #0b1f3a !important;
-  margin-bottom: 3rem !important;
-}
-
-/* Força os slides a ficarem presos na mesma caixa */
-.carousel-slide {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Garante que imagens gigantes não empurrem a tela */
-.carousel-slide img,
-.slide-full-img,
-.slide-bg-img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  display: block !important;
-}
-
-/* Posicionamento dos botões por cima dos slides */
-.carousel-btn {
-  position: absolute !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  z-index: 10 !important;
-}
-
-.carousel-dots {
-  position: absolute !important;
-  bottom: 15px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  z-index: 10 !important;
-}
-
-   /* ==========================================================================
-   ENQUADRAMENTO PERFEITO DAS IMAGENS NO CARROSSEL
-   ========================================================================== */
-.carousel-container {
-  height: 450px !important;
-  max-height: 450px !important;
-  position: relative !important;
-  overflow: hidden !important; /* Corta qualquer elemento que tente sair da caixa */
-  background-color: #0b1f3a !important; /* Fundo azul noturno para preencher as laterais */
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #0b1f3a;
+  margin-bottom: 3rem;
 }
 
 .carousel-slide {
-  width: 100% !important;
-  height: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* Enquadra a imagem inteira mantendo a proporção original */
-.carousel-slide img,
-.slide-full-img,
-.slide-bg-img {
-  max-width: 100% !important;
-  max-height: 100% !important;
-  width: auto !important;
-  height: auto !important;
-  object-fit: contain !important; /* Garante que a imagem inteira fique visível sem esticar */
-  margin: auto !important;
+.carousel-slide img.slide-full-img,
+.carousel-slide img.slide-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
 }
