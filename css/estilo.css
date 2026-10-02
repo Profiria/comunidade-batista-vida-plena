@@ -17,7 +17,7 @@
   --gradient-blue: linear-gradient(135deg, #0b1f3a 0%, #004080 100%);
   
   /* Tipografia */
-  --font-family-base: 'Montserrat', sans-serif;
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
   
   /* Espaçamentos e Sombras */
   --radius-sm: 6px;
