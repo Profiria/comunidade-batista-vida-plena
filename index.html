@@ -148,6 +148,22 @@
 
  <!-- SCRIPT EXTERNO UNIFICADO -->
   <script src="js/script.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Busca o botão por qualquer um dos nomes de ID possíveis
+    const botaoMenu = document.getElementById('menu-toggle') || document.getElementById('hamburger') || document.querySelector('.hamburger');
+    const listaMenu = document.getElementById('nav-menu') || document.querySelector('.nav-menu');
 
+    if (botaoMenu && listaMenu) {
+      botaoMenu.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        listaMenu.classList.toggle('active');
+        console.log('Menu clicado! Estado active:', listaMenu.classList.contains('active'));
+      });
+    }
+  });
+  </script>
+  
 </body>
 </html>
