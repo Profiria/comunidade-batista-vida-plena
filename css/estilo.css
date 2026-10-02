@@ -587,13 +587,6 @@ body {
   font-size: 1rem;
 }
 
-.history-card p {
-  text-align: left;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  color: #334155;
-
-}
 /* ==========================================================================
    PÁGINA DE PROGRAMAÇÃO & TABELAS RESPONSIVAS
    ========================================================================== */
@@ -1014,15 +1007,8 @@ body {
 }
 
 .pastor-info p {
-  color: #334155;
+  color: #475569;
   font-size: 0.95rem;
   line-height: 1.6;
   text-align: justify; /* Alinha o texto do texto pastoral deixando a leitura agradável */
-}
-/* ==========================================================================
-   PADRONIZAÇÃO GLOBAL DE TEXTOS E PARÁGRAFOS
-   ========================================================================== */
-p {
-  color: #334155 !important;
-  line-height: 1.6;
 }
