@@ -2,21 +2,10 @@
 // SCRIPT PRINCIPAL UNIFICADO - COMUNIDADE BATISTA VIDA PLENA
 // ==========================================================================
 
-document.addEventListener('DOMContentLoaded', function() {
-  const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
-
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', function() {
-      navMenu.classList.toggle('active');
-    });
-  }
-});
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. MENU HAMBÚRGUER (Todas as páginas)
-  const hamburger = document.getElementById('hamburger');
+  // 1. MENU HAMBÚRGUER (Atende tanto id="hamburger" quanto id="menu-toggle")
+  const hamburger = document.getElementById('hamburger') || document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
 
   if (hamburger && navMenu) {
@@ -25,19 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
   // 2. LÓGICA DO CARROSSEL (Apenas na index.html)
   const slides = document.querySelectorAll('.carousel-slide');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const dotsContainer = document.getElementById('carouselDots');
 
-  // Só executa a lógica se o carrossel existir na página atual
+  // Só executa se o carrossel existir na página atual
   if (slides.length > 0 && prevBtn && nextBtn && dotsContainer) {
     let currentSlide = 0;
     let slideInterval;
 
-    // Criar indicadores (dots) dinamicamente
+    // Cria os pontinhos (dots) de navegação dinamicamente
+    dotsContainer.innerHTML = '';
     slides.forEach((_, index) => {
       const dot = document.createElement('div');
       dot.classList.add('dot');
@@ -48,36 +37,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const dots = document.querySelectorAll('.dot');
 
-    function updateSlides() {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === currentSlide);
+    function updateCarousel() {
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
       });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
+
+      dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
       });
     }
 
     function nextSlide() {
       currentSlide = (currentSlide + 1) % slides.length;
-      updateSlides();
+      updateCarousel();
     }
 
     function prevSlide() {
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      updateSlides();
+      updateCarousel();
     }
 
     function goToSlide(index) {
       currentSlide = index;
-      updateSlides();
+      updateCarousel();
       resetTimer();
+    }
+
+    function startTimer() {
+      slideInterval = setInterval(nextSlide, 5000); // Troca a cada 5 segundos
     }
 
     function resetTimer() {
       clearInterval(slideInterval);
-      slideInterval = setInterval(nextSlide, 5000);
+      startTimer();
     }
 
+    // Eventos dos botões Anterior / Próximo
     nextBtn.addEventListener('click', () => {
       nextSlide();
       resetTimer();
@@ -88,10 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
       resetTimer();
     });
 
-    // Iniciar rotação automática a cada 5 segundos
-    slideInterval = setInterval(nextSlide, 5000);
+    // Inicia o carrossel automático
+    updateCarousel();
+    startTimer();
   }
-
 });
 
 // 3. FUNÇÃO DE COPIAR A CHAVE PIX (Página contribuicao.html)
