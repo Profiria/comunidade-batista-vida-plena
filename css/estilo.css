@@ -1,21 +1,22 @@
-/@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap');
+/* Importação das fontes mantendo todas as variações */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 /* ==========================================================================
    DESIGN SYSTEM - TOKENS
    ========================================================================== */
 :root {
-  /* Cores Extraídas do Manual da Marca */
+  /* Cores Originais do Projeto */
   --color-primary: #0b1f3a;        /* Azul Escuro */
   --color-secondary: #6d8193;      /* Cinza Azulado */
   --color-bg-light: #ededed;       /* Cinza Claro */
   --color-white: #ffffff;
-  --color-text-dark: #0f172a;      /* Preto Grafite para MÁXIMA NITIDEZ */
+  --color-text-dark: #1f2937;      /* Cor original do texto */
   --color-accent-blue: #006699;
 
   /* Gradients */
   --gradient-blue: linear-gradient(135deg, #0b1f3a 0%, #004080 100%);
   
-  /* Tipografia */
+  /* Tipografia: Inter aplicada como fonte base do site */
   --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-title: 'Montserrat', sans-serif;
   
@@ -37,8 +38,6 @@ body {
   background-color: var(--color-bg-light);
   color: var(--color-text-dark);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==========================================================================
