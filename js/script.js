@@ -2,7 +2,16 @@
 // SCRIPT PRINCIPAL UNIFICADO - COMUNIDADE BATISTA VIDA PLENA
 // ==========================================================================
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+    });
+  }
+});
 
   // 1. MENU HAMBÚRGUER (Todas as páginas)
   const hamburger = document.getElementById('hamburger');
