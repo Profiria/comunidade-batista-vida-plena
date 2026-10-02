@@ -1032,3 +1032,55 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.6;
   text-align: justify; /* Alinha o texto do texto pastoral deixando a leitura agradável */
 }
+
+/* ==========================================================================
+   CORREÇÃO DEFINITIVA DO CARROSSEL (TRAVA DE EMPILHAMENTO)
+   ========================================================================== */
+.carousel-container {
+  position: relative !important;
+  width: 100% !important;
+  height: 450px !important;
+  max-height: 450px !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background-color: #0b1f3a !important;
+  margin-bottom: 3rem !important;
+}
+
+/* Força os slides a ficarem presos na mesma caixa */
+.carousel-slide {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Garante que imagens gigantes não empurrem a tela */
+.carousel-slide img,
+.slide-full-img,
+.slide-bg-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+/* Posicionamento dos botões por cima dos slides */
+.carousel-btn {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 10 !important;
+}
+
+.carousel-dots {
+  position: absolute !important;
+  bottom: 15px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 10 !important;
+}
