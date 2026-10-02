@@ -1,5 +1,4 @@
-/* Importação da fonte Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+/@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap');
 
 /* ==========================================================================
    DESIGN SYSTEM - TOKENS
@@ -10,14 +9,15 @@
   --color-secondary: #6d8193;      /* Cinza Azulado */
   --color-bg-light: #ededed;       /* Cinza Claro */
   --color-white: #ffffff;
-  --color-text-dark: #1f2937;
+  --color-text-dark: #0f172a;      /* Preto Grafite para MÁXIMA NITIDEZ */
   --color-accent-blue: #006699;
 
   /* Gradients */
   --gradient-blue: linear-gradient(135deg, #0b1f3a 0%, #004080 100%);
   
   /* Tipografia */
-  --font-family-base: 'Montserrat', sans-serif;
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-title: 'Montserrat', sans-serif;
   
   /* Espaçamentos e Sombras */
   --radius-sm: 6px;
@@ -37,13 +37,30 @@ body {
   background-color: var(--color-bg-light);
   color: var(--color-text-dark);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   PADRONIZAÇÃO GLOBAL DE TEXTOS E PARÁGRAFOS (ALTÍSSIMA NITIDEZ)
+   ========================================================================== */
+p, .history-card p, .pastor-info p, .leader-card p {
+  color: #111827 !important;        /* Preto bem escuro e nítido (Slate 900) */
+  font-weight: 500 !important;       /* Peso Medium constante */
+  font-size: 1.1rem !important;      /* Aumenta o tamanho da letra para dar presença */
+  line-height: 1.75 !important;      /* Altura de linha fluida e confortável */
+  letter-spacing: 0.1px !important;  /* Ajusta o espaçamento das letras */
+}
+h1, h2, h3, h4, .pastor-info h3 {
+  font-family: var(--font-family-title);
+  font-weight: 700;
 }
 
 /* ==========================================================================
    CABEÇALHO & NAV
    ========================================================================== */
 .header {
-  background-color: var(--color-primary); /* Fundo Azul Escuro */
+  background-color: var(--color-primary);
   width: 100%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
@@ -62,12 +79,12 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
-  background-color: transparent; /* Remove o fundo branco */
+  background-color: transparent;
   padding: 0;
 }
 
 .logo-img {
-  height: 60px;          /* Altura ideal para dar destaque */
+  height: 60px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -76,29 +93,29 @@ body {
 
 /* Menu de Navegação Horizontal */
 .nav-menu {
-  display: flex;               /* Força os itens a ficarem LADO A LADO */
-  flex-direction: row;         /* Alinhamento na horizontal */
-  list-style: none;            /* Remove as bolinhas do <ul> */
-  gap: 2rem;                   /* Espaçamento entre as opções */
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 2rem;
   align-items: center;
 }
 
 .nav-link {
-  color: var(--color-white);   /* Texto branco sobre o fundo azul */
-  text-decoration: none;       /* Remove o sublinhado */
+  color: var(--color-white);
+  text-decoration: none;
   font-size: 1rem;
-  font-weight: 600;            /* Deixa a fonte mais nítida/encorpada */
+  font-weight: 600;
   letter-spacing: 0.5px;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: var(--color-hover);   /* Mudança de cor ao passar o mouse */
+  color: var(--color-hover);
 }
 
 .nav-link.active {
   color: #ffffff;
-  border-bottom: 2px solid var(--color-secondary); /* Indicador da página atual */
+  border-bottom: 2px solid var(--color-secondary);
   padding-bottom: 4px;
 }
 
@@ -121,17 +138,17 @@ body {
    HERO SECTION
    ========================================================================== */
 .hero {
-  background-color: #ededed; /* Cinza claro da paleta */
-  color: #0b1f3a;            /* Azul escuro para contraste */
+  background-color: #ededed;
+  color: #0b1f3a;
   text-align: center;
   padding: 3.5rem 1.5rem;
-  border-bottom: 3px solid #6d8193; /* Detalhe em cinza azulado */
+  border-bottom: 3px solid #6d8193;
 }
 
 .hero h1 {
   font-size: 2.4rem;
   font-weight: 700;
-  color: #0b1f3a;            /* Azul Escuro Noturno */
+  color: #0b1f3a;
   margin-bottom: 0.5rem;
 }
 
@@ -139,13 +156,14 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 3px;
-  color: #6d8193;            /* Cinza azulado da paleta */
+  color: #6d8193;
   margin-bottom: 0.8rem;
 }
+
 .hero-subtext {
   font-size: 1rem;
-  color: #334155;            /* Texto secundário escuro legível */
-  font-weight: 400;
+  color: #0f172a;
+  font-weight: 500;
   font-style: italic;
 }
 
@@ -174,10 +192,9 @@ body {
   margin-bottom: 3rem;
 }
 
-/* Embed de Vídeo Responsivo (Aspect Ratio 16:9) */
 .video-responsive {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   border-radius: var(--radius-sm);
@@ -284,28 +301,13 @@ body {
     font-size: 1.8rem;
   }
 }
-/* Container do Logo */
-.logo-container {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
 
-/* Imagem da Logomarca */
-.logo-img {
-  height: 45px; /* Ajusta a altura conforme o tamanho ideal */
-  width: auto;  /* Mantém a proporção da imagem */
-  object-fit: contain;
-}
-/* ==========================================================================
-   ÍCONES DAS REDES SOCIAIS NO CABEÇALHO
-   ========================================================================== */
 .header-social {
   display: flex;
   align-items: center;
   gap: 1.2rem;
   margin-left: 1.5rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.2); /* Linha divisória suave */
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
   padding-left: 1.5rem;
 }
 
@@ -318,10 +320,9 @@ body {
 
 .social-icon:hover {
   color: var(--color-hover);
-  transform: translateY(-2px); /* Efeito suave de elevação ao passar o rato */
+  transform: translateY(-2px);
 }
 
-/* Ajuste Responsivo para Mobile */
 @media (max-width: 768px) {
   .header-social {
     border-left: none;
@@ -331,23 +332,21 @@ body {
     justify-content: center;
   }
 }
-  /* ==========================================================================
-   CARROSSEL DE EVENTOS / SLIDER (CORRIGIDO)
-   ========================================================================== */
 
-/* Container Principal do Carrossel */
+/* ==========================================================================
+   CARROSSEL DE EVENTOS
+   ========================================================================== */
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 450px; /* Altura ideal fixa para não achatar os flyers */
+  height: 450px;
   border-radius: var(--radius-md, 12px);
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   margin-bottom: 3rem;
-  background-color: #0b1f3a; /* Fundo escuro oficial para preencher bordas */
+  background-color: #0b1f3a;
 }
 
-/* Regra Base do Slide (Esconde os inativos) */
 .carousel-slide {
   position: absolute;
   top: 0;
@@ -362,218 +361,25 @@ body {
   justify-content: center;
 }
 
-/* Slide Ativo (Mostra na tela) */
 .carousel-slide.active {
   opacity: 1;
   visibility: visible;
   z-index: 1;
 }
 
-/* Imagens dos Slides (Mostrar a arte 100% sem cortes) */
 .carousel-slide img,
 .slide-bg-img,
 .slide-full-img {
   width: 100%;
   height: 100%;
-  object-fit: contain !important; /* Preserva a proporção exata da arte */
+  object-fit: contain !important;
   object-position: center;
   display: block;
 }
 
-/* Textos sobrepostos (caso o slide use texto em HTML) */
-.slide-content {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  right: 2rem;
-  z-index: 2;
-  color: #ffffff;
-  background: rgba(11, 31, 58, 0.75); /* Fundo sutil para leitura */
-  padding: 1.5rem;
-  border-radius: 8px;
-  backdrop-filter: blur(4px);
-}
-
-.slide-content h3 {
-  font-size: 1.8rem;
-  margin: 0.5rem 0;
-  color: #ffffff;
-}
-
-.slide-content p {
-  font-size: 1rem;
-  color: #ededed;
-  margin-bottom: 1.2rem;
-  max-width: 600px;
-}
-
-.slide-badge {
-  background-color: #6d8193;
-  color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-.btn-slide {
-  display: inline-block;
-  background-color: #ffffff;
-  color: #0b1f3a;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-}
-
-.btn-slide:hover {
-  background-color: #ededed;
-}
-
-/* Botões de Avançar/Voltar */
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #ffffff;
-  border: none;
-  font-size: 1.5rem;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 3;
-  transition: background-color 0.3s ease;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.carousel-btn.prev { left: 15px; }
-.carousel-btn.next { right: 15px; }
-
-/* Indicadores (Dots) */
-.carousel-dots {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 3;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-  transition: background-color 0.3s ease, width 0.3s ease;
-}
-
-.dot.active {
-  background-color: #ffffff;
-  width: 22px;
-  border-radius: 10px;
-}
 /* ==========================================================================
-   PÁGINA SOBRE NÓS
+   PÁGINA SOBRE NÓS E HISTÓRIA
    ========================================================================== */
-
-/* Bloco da Missão Central */
-.mission-banner {
-  background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%);
-  color: #ffffff;
-  padding: 2.5rem 1.5rem;
-  border-radius: var(--radius-md, 12px);
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  margin-bottom: 3rem;
-  border-left: 6px solid #6d8193;
-}
-
-.mission-quote {
-  font-size: 1.6rem;
-  font-weight: 600;
-  font-style: italic;
-  margin-bottom: 0.5rem;
-}
-
-.mission-subtitle {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #a0b2c6;
-  font-weight: 600;
-}
-
-/* Ícones nos Cards dos Pilares */
-.icon-card {
-  font-size: 2.2rem;
-  color: #0b1f3a;
-  margin-bottom: 1rem;
-}
-
-/* ==========================================================================
-   LIDERANÇA PASTORAL & BLOCOS LARGOS (100% de Largura)
-   ========================================================================== */
-.leadership-container {
-  width: 100%;
-  margin-bottom: 3rem;
-}
-
-.leader-card {
-  background: #ffffff;
-  border-radius: var(--radius-md, 12px);
-  padding: 2.5rem 2rem;
-  text-align: center;
-  width: 100%; /* Ocupa 100% da largura do container, alinhando com as pontas dos pilares */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-top: 4px solid #0b1f3a;
-}
-
-.leader-avatar {
-  width: 80px;
-  height: 80px;
-  background-color: #ededed;
-  color: #0b1f3a;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  margin: 0 auto 1.2rem auto;
-}
-
-.leader-card h3 {
-  color: #0b1f3a;
-  font-size: 1.4rem;
-  margin-bottom: 0.3rem;
-}
-
-.leader-role {
-  display: block;
-  font-size: 0.9rem;
-  color: #6d8193;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-}
-
-.leader-card p {
-  color: #334155;
-  font-size: 1rem;
-  line-height: 1.6;
-  max-width: 800px; /* Mantém o texto agradável de ler ao centro */
-  margin: 0 auto;
-}
-
-/* Bloco para "Nossa História" (Card Largo de 100%) */
 .history-card {
   background: #ffffff;
   border-radius: var(--radius-md, 12px);
@@ -582,403 +388,31 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border-top: 5px solid #0b1f3a;
   margin-bottom: 3rem;
-  color: #334155;
-  line-height: 1.7;
-  font-size: 1rem;
-}
-
-.history-card p {
-  text-align: left;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  color: #334155;
-
-}
-/* ==========================================================================
-   PÁGINA DE PROGRAMAÇÃO & TABELAS RESPONSIVAS
-   ========================================================================== */
-
-/* Container da Tabela com Rolagem para Telas Pequenas */
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-radius: var(--radius-md, 12px);
-  background-color: #ffffff;
-}
-
-.schedule-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 0.95rem;
-}
-
-.schedule-table thead {
-  background-color: #0b1f3a;
-  color: #ffffff;
-}
-
-.schedule-table th, 
-.schedule-table td {
-  padding: 1.2rem 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.schedule-table th {
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.schedule-table tbody tr:hover {
-  background-color: #f8fafc;
-}
-
-/* Linha em Destaque para o Culto Principal */
-.schedule-table tr.highlight-row {
-  background-color: #f1f5f9;
-}
-
-/* Badge de Horário */
-.badge-time {
-  background-color: #6d8193;
-  color: #ffffff;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-
-/* Cartões de Eventos com Data em Destaque */
-.event-card {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  text-align: left;
-}
-
-.event-date {
-  background-color: #0b1f3a;
-  color: #ffffff;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  text-align: center;
-  min-width: 70px;
-  display: flex;
-  flex-direction: column;
-}
-
-.event-date .day {
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.event-date .month {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: #a0b2c6;
-  margin-top: 2px;
-}
-
-.event-details h3 {
-  color: #0b1f3a;
-  font-size: 1.1rem;
-  margin-bottom: 0.4rem;
-}
-
-.event-details p {
-  color: #64748b;
-  font-size: 0.85rem;
-  margin-bottom: 0.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-/* ==========================================================================
-   PÁGINA DA ESCOLA BÍBLICA (EBD)
-   ========================================================================== */
-
-/* Banner introdutório da EBD */
-.ebd-intro-banner {
-  background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%);
-  color: #ffffff;
-  padding: 2.2rem 2rem;
-  border-radius: var(--radius-md, 12px);
-  margin-bottom: 3rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.ebd-intro-banner h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.6rem;
-  text-align: center;
-}
-
-.ebd-intro-banner p {
-  font-size: 1rem;
-  color: #ededed;
-  line-height: 1.6;
-}
-
-/* Cartões das Classes */
-.ebd-class-card {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.ebd-class-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.class-icon {
-  font-size: 2rem;
-  color: #0b1f3a;
-}
-
-.class-badge {
-  background-color: #ededed;
-  color: #0b1f3a;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.ebd-class-card h3 {
-  color: #0b1f3a;
-  font-size: 1.25rem;
-  margin-bottom: 0.3rem;
-}
-
-.class-teacher {
-  font-size: 0.85rem;
-  color: #6d8193;
-  margin-bottom: 0.8rem;
-}
-
-.ebd-class-card p {
-  color: #334155;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* Lista de Downloads de Materiais */
-.download-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.download-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.2rem;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.download-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.ppt-icon {
-  font-size: 1.8rem;
-  color: #d97706; /* Cor laranja característica de apresentações/slides */
-}
-
-.download-info h4 {
-  color: #0b1f3a;
-  font-size: 1rem;
-  margin-bottom: 0.2rem;
-}
-
-.download-info p {
-  color: #64748b;
-  font-size: 0.82rem;
-  margin: 0;
-}
-
-.btn-download-sm {
-  background-color: #0b1f3a;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: background-color 0.3s ease;
-}
-
-.btn-download-sm:hover {
-  background-color: #6d8193;
-}
-/* ==========================================================================
-   PÁGINA DE CONTATO
-   ========================================================================== */
-
-/* Grid em 2 Colunas no Desktop e 1 Coluna no Celular */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-@media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.contact-card {
-  background-color: #ffffff;
-  border-radius: var(--radius-md, 12px);
-  padding: 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-top: 4px solid #0b1f3a;
-}
-
-.contact-title {
-  color: #0b1f3a;
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-/* Estilização do Formulário */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  text-align: left;
-}
-
-.form-group label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #0b1f3a;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 0.95rem;
-  color: #334155;
-  background-color: #f8fafc;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #0b1f3a;
-  box-shadow: 0 0 0 3px rgba(11, 31, 58, 0.15);
-  background-color: #ffffff;
-}
-
-.btn-submit {
-  background-color: #0b1f3a;
-  color: #ffffff;
-  border: none;
-  padding: 0.85rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  transition: background-color 0.3s ease;
-  margin-top: 0.5rem;
-}
-
-.btn-submit:hover {
-  background-color: #6d8193;
-}
-
-/* Itens de Informação de Contato */
-.info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-.info-icon {
-  font-size: 1.5rem;
-  color: #0b1f3a;
-  margin-top: 0.2rem;
-}
-
-.info-item h4 {
-  color: #0b1f3a;
-  font-size: 1rem;
-  margin-bottom: 0.2rem;
-}
-
-.info-item p {
-  color: #64748b;
-  font-size: 0.9rem;
-  line-height: 1.5;
 }
 
 /* ==========================================================================
-   SEÇÃO LIDERANÇA PASTORAL (3 PASTORES ALINHADOS)
+   SEÇÃO LIDERANÇA PASTORAL
    ========================================================================== */
-
 .pastors-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   justify-content: center;
-  align-items: stretch; /* Garante que todos os cartões tenham a mesma altura */
+  align-items: stretch;
 }
 
-/* Em telas médias ou tablets (ex: até 992px), fica em 2 ou 1 coluna */
 @media (max-width: 992px) {
   .pastors-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
-/* Em celulares (até 768px), fica 1 cartão por linha */
 @media (max-width: 768px) {
   .pastors-grid {
     grid-template-columns: 1fr;
   }
 }
+
 .pastor-card {
   background-color: #ffffff;
   border-radius: 12px;
@@ -1005,8 +439,8 @@ body {
 
 .pastor-role {
   display: inline-block;
-  color: #6d8193;
-  font-weight: 600;
+  color: #0b1f3a;
+  font-weight: 700;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1014,15 +448,18 @@ body {
 }
 
 .pastor-info p {
-  color: #334155;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  text-align: justify; /* Alinha o texto do texto pastoral deixando a leitura agradável */
+  color: #0f172a !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  text-align: justify;
 }
-/* ==========================================================================
-   PADRONIZAÇÃO GLOBAL DE TEXTOS E PARÁGRAFOS
-   ========================================================================== */
-p {
-  color: #334155 !important;
-  line-height: 1.6;
+
+/* FORÇAR FONTE INTER + PESO ENCORPADO EM TODOS OS TEXTOS */
+p, span, li, div {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  color: #0f172a !important;   /* Preto Grafite de alto contraste */
+  font-weight: 500 !important;  /* Peso Medium (resolve o traço fino) */
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
 }
