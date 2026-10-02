@@ -1,38 +1,31 @@
-/* ==========================================================================
-   REGRAS EXCLUSIVAS PARA CELULAR (TELA VERTICAL - ABAIXO DE 768px)
-   ========================================================================== */
 @media (max-width: 768px) {
-
-  /* Esconde a lista original para que não fique vazando na tela */
   .nav-menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #0b1f3a; /* Fundo azul noturno */
-    padding: 1.5rem 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
+    display: none !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    position: absolute !important;
+    top: 60px !important; /* Ajuste para cair logo abaixo do cabeçalho */
+    left: 0 !important;
+    background-color: #0b1f3a !important;
+    padding: 1.5rem 0 !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
+    z-index: 99999 !important; /* Força ficar por cima de TUDO */
   }
 
-  /* Quando clica nas listrinhas, o JS ativa esta classe e o menu abre empilhado */
+  /* QUANDO O CLIQUE ACONTECE */
   .nav-menu.active {
     display: flex !important;
   }
 
-  /* Organiza os links um abaixo do outro com bom espaço para o toque */
   .nav-menu li {
-    width: 100%;
-    text-align: center;
-    margin: 0.8rem 0;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0.8rem 0 !important;
   }
 
   .nav-link {
-    display: block;
-    padding: 0.6rem 0;
-    font-size: 1.1rem;
+    display: block !important;
     color: #ffffff !important;
+    font-size: 1.1rem !important;
   }
 }
