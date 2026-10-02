@@ -17,7 +17,8 @@
   
   /* Tipografia */
   --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
-  
+  --font-family-title: 'Montserrat', sans-serif;
+   
   /* Espaçamentos e Sombras */
   --radius-sm: 6px;
   --radius-md: 12px;
