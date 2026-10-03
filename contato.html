@@ -62,48 +62,85 @@
       <div class="contact-card">
         <h3 class="contact-title"><i class="fa-regular fa-envelope"></i> Envie uma Mensagem</h3>
         
-        <form class="contact-form" action="https://formspree.io/f/mrpbnjwg" method="POST">
+        <form id="meuFormulario" action="https://formspree.io/f/mrpbnjwg" method="POST" class="contact-form">
 
-          <input type="hidden" name="_next" value="https://profiria.github.io/comunidade-batista-vida-plena/obrigado.html">
- 
-         <div class="form-group">
-         <label for="nome">Nome Completo *</label>
-         <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
-     </div>
+          <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+          </div>
 
-  <div class="form-group">
-    <label for="email">E-mail para Resposta *</label>
-    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
-  </div>
+          <div class="form-group">
+            <label for="email">E-mail para Resposta *</label>
+            <input type="email" id="email" name="_replyto" required placeholder="seuemail@exemplo.com">
+          </div>
 
-  <div class="form-group">
-    <label for="telefone">Telefone / WhatsApp *</label>
-    <input type="tel" id="telefone" name="telefone" placeholder="(61) 99999-9999" required>
-  </div>
+          <div class="form-group">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(61) 99999-9999">
+          </div>
 
-  <!-- CAMPO OBRIGATÓRIO DE TRIAGEM DE ASSUNTO -->
-  <div class="form-group">
-    <label for="assunto">Assunto da Mensagem *</label>
-    <select id="assunto" name="assunto" required>
-      <option value="" disabled selected>-- Selecione o assunto para encaminhamento --</option>
-      <option value="oracao">Pedido de Oração</option>
-      <option value="aconselhamento">Pedido de Aconselhamento Pastoral</option>
-      <option value="acao-social">Ação Social & Acolhimento</option>
-      <option value="secretaria">Dúvidas / Informações Gerais (Secretaria)</option>
-      <option value="voluntariado">Quero Servir em um Ministério</option>
-      <option value="outro">Outros Assuntos</option>
-    </select>
-  </div>
+          <!-- CAMPO OBRIGATÓRIO DE TRIAGEM DE ASSUNTO -->
+          <div class="form-group">
+            <label for="assunto">Assunto da Mensagem *</label>
+            <select id="assunto" name="assunto" required>
+              <option value="" disabled selected>-- Selecione um assunto --</option>
+              <option value="oracao">Pedido de Oração</option>
+              <option value="aconselhamento">Pedido de Aconselhamento Pastoral</option>
+              <option value="acao-social">Ação Social & Acolhimento</option>
+              <option value="secretaria">Dúvidas / Informações Gerais</option>
+              <option value="voluntariado">Quero Servir em um Ministério</option>
+              <option value="outro">Outros Assuntos</option>
+            </select>
+          </div>
 
-  <div class="form-group">
-    <label for="mensagem">Mensagem *</label>
-    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem com detalhes..." required></textarea>
-  </div>
+          <div class="form-group">
+            <label for="mensagem">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Escreva sua mensagem aqui..."></textarea>
+          </div>
 
-  <button type="submit" class="btn-submit">
-    <i class="fa-solid fa-paper-plane"></i> Enviar Mensagem
-  </button>
-</form>
+          <button type="submit" id="btnEnviar" class="btn-primary">Enviar Mensagem</button>
+
+          <!-- MENSAGEM DE SUCESSO (OCULTA POR PADRÃO) -->
+          <div id="mensagemSucesso" style="display: none; margin-top: 1.5rem; padding: 1rem; background-color: #e6f4f1; border: 1px solid #32bcad; border-radius: 8px; color: #0b1f3a; text-align: center;">
+            <i class="fa-solid fa-circle-check" style="color: #32bcad; font-size: 1.5rem; vertical-align: middle; margin-right: 0.5rem;"></i>
+            <strong>Mensagem enviada com sucesso!</strong> Em breve entraremos em contato.
+          </div>
+
+        </form>
+
+        <!-- SCRIPT DE ENVIO EM SEGUNDO PLANO -->
+        <script>
+          const form = document.getElementById('meuFormulario');
+          const btnEnviar = document.getElementById('btnEnviar');
+          const mensagemSucesso = document.getElementById('mensagemSucesso');
+
+          form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            btnEnviar.disabled = true;
+            btnEnviar.innerText = 'Enviando...';
+
+            const data = new FormData(event.target);
+            
+            const response = await fetch(event.target.action, {
+              method: form.method,
+              body: data,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            if (response.ok) {
+              form.reset();
+              btnEnviar.style.display = 'none';
+              mensagemSucesso.style.display = 'block';
+            } else {
+              alert('Ops! Ocorreu um erro ao enviar sua mensagem. Tente novamente.');
+              btnEnviar.disabled = false;
+              btnEnviar.innerText = 'Enviar Mensagem';
+            }
+          });
+        </script>
       </div>
 
       <!-- COLUNA 2: INFORMAÇÕES & ENDEREÇO -->
