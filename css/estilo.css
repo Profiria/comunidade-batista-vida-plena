@@ -1026,23 +1026,79 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ==========================================================================
-   ESTILIZAÇÃO DO QR CODE DO PIX
+   ESTILIZAÇÃO DO CARTÃO PIX E QR CODE
    ========================================================================== */
 
 .qr-code-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.5rem 0;
+  margin: 1.2rem 0;
 }
 
 .qr-code-img {
   width: 100%;
-  max-width: 200px; /* Tamanho ideal para leitura pela câmera do celular */
+  max-width: 180px;
   height: auto;
   padding: 0.8rem;
   background-color: #ffffff;
-  border: 2px solid var(--color-primary, #0b1f3a);
+  border: 2px solid #0b1f3a;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: block;
+  margin: 0 auto;
+}
+
+.pix-instructions {
+  color: #475569;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* Grupo do campo + botão lado a lado no PC e empilhados no celular */
+.pix-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+@media (min-width: 480px) {
+  .pix-input-group {
+    flex-direction: row;
+  }
+}
+
+.pix-input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  color: #0b1f3a;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.btn-pix {
+  background-color: #0b1f3a;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-pix:hover {
+  background-color: #32bcad;
 }
