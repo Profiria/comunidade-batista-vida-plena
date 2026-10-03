@@ -1,4 +1,10 @@
+// ==========================================================================
+// SCRIPT PRINCIPAL UNIFICADO - COMUNIDADE BATISTA VIDA PLENA
+// ==========================================================================
+
 document.addEventListener('DOMContentLoaded', function() {
+
+  // 1. MENU HAMBÚRGUER (Todas as páginas)
   const menuToggle = document.getElementById('menu-toggle') || document.getElementById('hamburger') || document.querySelector('.hamburger');
   const navMenu = document.getElementById('nav-menu') || document.querySelector('.nav-menu');
 
@@ -8,14 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
       navMenu.classList.toggle('active');
     });
 
-    // Fecha o menu se o usuário clicar fora da gaveta
+    // Fecha a gaveta lateral se clicar fora do menu
     document.addEventListener('click', function(e) {
       if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
         navMenu.classList.remove('active');
       }
     });
   }
-});
 
   // 2. LÓGICA DO CARROSSEL (Apenas na index.html)
   const slides = document.querySelectorAll('.carousel-slide');
@@ -27,54 +32,55 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSlide = 0;
     let slideInterval;
 
+    const updateSlides = function() {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentSlide);
+      });
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    };
+
+    const nextSlide = function() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlides();
+    };
+
+    const prevSlide = function() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlides();
+    };
+
+    const goToSlide = function(index) {
+      currentSlide = index;
+      updateSlides();
+      resetTimer();
+    };
+
+    const resetTimer = function() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, 5000);
+    };
+
     // Criar indicadores (dots) dinamicamente
     dotsContainer.innerHTML = '';
     slides.forEach((_, index) => {
       const dot = document.createElement('div');
       dot.classList.add('dot');
       if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(index));
+      dot.addEventListener('click', function() {
+        goToSlide(index);
+      });
       dotsContainer.appendChild(dot);
     });
 
-    const dots = document.querySelectorAll('.dot');
-
-    function updateSlides() {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === currentSlide);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      updateSlides();
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      updateSlides();
-    }
-
-    function goToSlide(index) {
-      currentSlide = index;
-      updateSlides();
-      resetTimer();
-    }
-
-    function resetTimer() {
-      clearInterval(slideInterval);
-      slideInterval = setInterval(nextSlide, 5000);
-    }
-
-    nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener('click', function() {
       nextSlide();
       resetTimer();
     });
 
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener('click', function() {
       prevSlide();
       resetTimer();
     });
@@ -94,14 +100,14 @@ function copiarPix() {
   chaveInput.select();
   chaveInput.setSelectionRange(0, 99999);
 
-  navigator.clipboard.writeText(chaveInput.value).then(() => {
+  navigator.clipboard.writeText(chaveInput.value).then(function() {
     if (btnText) {
       btnText.innerText = "Chave Copiada!";
-      setTimeout(() => {
+      setTimeout(function() {
         btnText.innerText = "Copiar Chave PIX";
       }, 3000);
     }
-  }).catch(err => {
+  }).catch(function(err) {
     console.error("Erro ao copiar chave PIX: ", err);
   });
 }
