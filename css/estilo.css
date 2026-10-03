@@ -1024,3 +1024,25 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.6;
   text-align: justify; /* Alinha o texto do texto pastoral deixando a leitura agradável */
 }
+
+/* ==========================================================================
+   ESTILIZAÇÃO DO QR CODE DO PIX
+   ========================================================================== */
+
+.qr-code-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.qr-code-img {
+  width: 100%;
+  max-width: 200px; /* Tamanho ideal para leitura pela câmera do celular */
+  height: auto;
+  padding: 0.8rem;
+  background-color: #ffffff;
+  border: 2px solid var(--color-primary, #0b1f3a);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
