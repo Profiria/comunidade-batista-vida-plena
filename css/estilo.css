@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6,
   background-color: var(--color-primary); /* Fundo Azul Escuro */
   width: 100%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
- box-sizing: border box;
+ box-sizing: border-box;
 }
 
 .navbar {
@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6,
   justify-content: space-between;
   align-items: center;
   padding: 0 1.5rem;
-  box-sizing: border box;
+  box-sizing: border-box;
 }
 
 /* Logo */
@@ -91,8 +91,8 @@ h1, h2, h3, h4, h5, h6,
   list-style: none;            /* Remove as bolinhas do <ul> */
   gap: 0.8rem;                   /* Espaçamento entre as opções */
   align-items: center;
-  margin: 0
-  padding: o
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link {
@@ -134,7 +134,7 @@ h1, h2, h3, h4, h5, h6,
    ========================================================================== */
 .hero {
   background-color: #ededed; /* Cinza claro da paleta */
-  color: #132e54a;         /* Azul escuro para contraste */
+  color: #132e54;         /* Azul escuro para contraste */
   text-align: center;
   padding: 3.5rem 1.5rem;
   border-bottom: 3px solid #6d8193; /* Detalhe em cinza azulado */
@@ -156,7 +156,7 @@ h1, h2, h3, h4, h5, h6,
 }
 .hero-subtext {
   font-size: 1rem;
-  color: #132e54         /* Texto secundário escuro legível */
+  color: #132e54;       /* Texto secundário escuro legível */
   font-weight: 400;
   font-style: italic;
 }
@@ -936,7 +936,7 @@ h1, h2, h3, h4, h5, h6,
 /* Itens de Informação de Contato */
 .info-item {
   display: flex;
-  align-items: flex-staalrt;
+  align-items: flex-start;
   gap: 1rem;
   margin-bottom: 1.2rem;
 }
