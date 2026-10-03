@@ -63,16 +63,23 @@
         <h3 class="contact-title" style="justify-content: center;"><i class="fa-brands fa-pix" style="color: #32bcad;"></i> Contribuição via PIX</h3>
         <p style="color: #475569; margin-bottom: 1.5rem;">A forma mais rápida e prática de realizar seu dízimo ou oferta.</p>
         
-        <!-- Área do QR Code / Chave PIX -->
-        <div style="background-color: #f8fafc; border: 2px dashed #cbd5e1; padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
-          <i class="fa-solid fa-qrcode" style="font-size: 4rem; color: #0b1f3a; margin-bottom: 1rem;"></i>
-          <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 0.5rem; font-weight: 600;">CHAVE PIX:</p>
-          <input type="text" id="chavePix" value="cbvpjesus@gmail.com" readonly style="text-align: center; font-weight: bold; font-size: 1.1rem; color: #0b1f3a; background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem; border-radius: 6px; width: 100%; margin-bottom: 1rem;">
-          
-          <button onclick="copiarPix()" class="btn-submit" style="width: 100%; justify-content: center; background-color: #32bcad;">
-            <i class="fa-regular fa-copy"></i> <span id="btnText">Copiar Chave PIX</span>
-          </button>
-        </div>
+        <!-- BLOCO DE CONTRIBUIÇÃO / PIX -->
+<div class="pix-card">
+
+  <!-- IMAGEM DO QR CODE -->
+  <div class="qr-code-container">
+    <img src="imgagem/qrcode.png" alt="QR Code PIX para contribuição - Comunidade Batista Vida Plena" class="qr-code-img">
+  </div>
+
+  <!-- CHAVE PIX E BOTÃO DE COPIAR -->
+  <p class="pix-instructions">Escaneie o QR Code acima ou copie a chave abaixo:</p>
+  
+  <div class="pix-input-group">
+    <input type="text" id="chavePix" value="33204782000130" readonly>
+    <button onclick="copiarPix()"><span id="btnText">Copiar Chave PIX</span></button>
+  </div>
+
+</div>
 
         <p style="font-size: 0.85rem; color: #64748b;"><strong>Favorecido:</strong> Comunidade Batista Vida Plena</p>
       </div>
