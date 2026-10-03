@@ -1056,19 +1056,6 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Grupo do campo + botão lado a lado no PC e empilhados no celular */
-.pix-input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  max-width: 360px;
-  margin: 0 auto;
-}
-
-@media (min-width: 480px) {
-  .pix-input-group {
-    flex-direction: row;
-  }
-}
 
 .pix-input {
   width: 100%;
@@ -1101,4 +1088,30 @@ h1, h2, h3, h4, h5, h6,
 
 .btn-pix:hover {
   background-color: #32bcad;
+}
+
+/* Força o conteúdo do cartão PIX a ficar vertical e centralizado */
+.pix-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.pix-input-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .pix-input-group {
+    flex-direction: column;
+  }
 }
