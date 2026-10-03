@@ -1,50 +1,80 @@
 /* ==========================================================================
-   MENU GAVETA LATERAL (ESTILO DRAWER/CHAT) - APENAS PARA CELULAR
+   MENU RESPONSIVO MOBILE - GAVETA LATERAL (Garantia de Funcionamento)
    ========================================================================== */
+
 @media (max-width: 768px) {
 
-  /* Gaveta do menu escondida fora da tela à esquerda */
+  /* 1. EXIBE O BOTÃO HAMBÚRGUER NO CELULAR */
+  #menu-toggle,
+  #hamburger,
+  .hamburger {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    width: 30px !important;
+    height: 25px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: 1000001 !important;
+  }
+
+  #menu-toggle span,
+  #hamburger span,
+  .hamburger span {
+    width: 100% !important;
+    height: 3px !important;
+    background-color: #ffffff !important;
+    border-radius: 2px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  /* 2. GAVETA LATERAL DO MENU (ESCONDIDA FORA DA TELA À ESQUERDA) */
+  #nav-menu,
   .nav-menu {
     display: flex !important;
     flex-direction: column !important;
     position: fixed !important;
     top: 0 !important;
-    left: -280px !important;       /* Esconde o menu totalmente à esquerda da tela */
-    width: 280px !important;        /* Largura confortável da gaveta lateral */
-    height: 100vh !important;       /* Ocupa 100% da altura da tela */
-    background-color: #0b1f3a !important; /* Azul noturno da igreja */
+    left: -280px !important;            /* Escondido fora da tela */
+    width: 280px !important;             /* Largura da gaveta */
+    height: 100vh !important;            /* Ocupa a altura inteira da tela */
+    background-color: #0b1f3a !important; /* Azul noturno */
     padding: 5rem 1.5rem 2rem 1.5rem !important;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4) !important;
-    z-index: 999999 !important;    /* Fica por cima de qualquer elemento */
-    transition: left 0.3s ease-in-out !important; /* Animação suave deslizando */
-    overflow-y: auto !important;   /* Permite rolar se a tela for pequena */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5) !important;
+    z-index: 1000000 !important;         /* Fica acima do carrossel e conteúdos */
+    transition: left 0.3s ease-in-out !important; /* Animação suave ao abrir */
+    overflow-y: auto !important;
   }
 
-  /* Quando clica nas três linhas, o menu desliza para dentro da tela */
+  /* 3. CLASSE ATIVA (QUANDO CLICA NO ÍCONE DE MENU, A GAVETA ENTRA NA TELA) */
+  #nav-menu.active,
   .nav-menu.active {
-    left: 0 !important;            /* Desliza a gaveta para a posição visível */
+    left: 0 !important;                 /* Desliza para dentro da tela */
   }
 
-  /* Estilização e alinhamento dos itens na gaveta */
+  /* Estilização dos itens na gaveta */
+  #nav-menu li,
   .nav-menu li {
     width: 100% !important;
-    margin: 0.6rem 0 !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    margin: 0.5rem 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    list-style: none !important;
   }
 
-  .nav-link {
+  #nav-menu .nav-link,
+  .nav-menu .nav-link {
     display: block !important;
     padding: 0.8rem 0.5rem !important;
     color: #ffffff !important;
     font-size: 1.1rem !important;
     text-decoration: none !important;
     text-align: left !important;
-    font-weight: 500 !important;
   }
 
-  /* Destaque para a página atual na gaveta */
-  .nav-link.active {
-    color: #32bcad !important; /* Verde-água de destaque */
-    font-weight: 700 !important;
+  #nav-menu .nav-link.active,
+  .nav-menu .nav-link.active {
+    color: #32bcad !important; /* Verde-água para a página atual */
+    font-weight: bold !important;
   }
 }
