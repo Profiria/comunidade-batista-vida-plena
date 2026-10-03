@@ -1,23 +1,21 @@
-// 1. MENU HAMBÚRGUER (Abre e fecha a lista no celular)
-const menuToggle = document.getElementById('menu-toggle')
-  || document.getElementById('hamburger')
-  || document.querySelector('.hamburger');
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menu-toggle') || document.getElementById('hamburger') || document.querySelector('.hamburger');
+  const navMenu = document.getElementById('nav-menu') || document.querySelector('.nav-menu');
 
-const navMenu = document.getElementById('nav-menu')
-  || document.querySelector('.nav-menu');
-
-if (menuToggle && navMenu) {
-  menuToggle.addEventListener('click', function() {
-    navMenu.classList.toggle('active');
-  });
-
-  // Bônus: fecha a gaveta ao tocar em um link
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
     });
-  });
-}
+
+    // Fecha o menu se o usuário clicar fora da gaveta
+    document.addEventListener('click', function(e) {
+      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+      }
+    });
+  }
+});
 
   // 2. LÓGICA DO CARROSSEL (Apenas na index.html)
   const slides = document.querySelectorAll('.carousel-slide');
