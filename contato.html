@@ -110,37 +110,46 @@
 
         <!-- SCRIPT DE ENVIO EM SEGUNDO PLANO -->
         <script>
-          const form = document.getElementById('meuFormulario');
-          const btnEnviar = document.getElementById('btnEnviar');
-          const mensagemSucesso = document.getElementById('mensagemSucesso');
+  const form = document.getElementById('meuFormulario');
+  const btnEnviar = document.getElementById('btnEnviar');
+  const mensagemSucesso = document.getElementById('mensagemSucesso');
 
-          form.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            
-            btnEnviar.disabled = true;
-            btnEnviar.innerText = 'Enviando...';
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    btnEnviar.disabled = true;
+    btnEnviar.innerText = 'Enviando...';
 
-            const data = new FormData(event.target);
-            
-            const response = await fetch(event.target.action, {
-              method: form.method,
-              body: data,
-              headers: {
-                'Accept': 'application/json'
-              }
-            });
+    // Converte os dados do formulário para um objeto JSON
+    const data = new FormData(form);
+    const jsonData = Object.fromEntries(data.entries());
 
-            if (response.ok) {
-              form.reset();
-              btnEnviar.style.display = 'none';
-              mensagemSucesso.style.display = 'block';
-            } else {
-              alert('Ops! Ocorreu um erro ao enviar sua mensagem. Tente novamente.');
-              btnEnviar.disabled = false;
-              btnEnviar.innerText = 'Enviar Mensagem';
-            }
-          });
-        </script>
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(jsonData)
+      });
+
+      if (response.ok) {
+        form.reset();
+        btnEnviar.style.display = 'none';
+        mensagemSucesso.style.display = 'block';
+      } else {
+        alert('Ops! Houve um problema ao enviar seu formulário. Verifique se os campos foram preenchidos corretamente.');
+        btnEnviar.disabled = false;
+        btnEnviar.innerText = 'Enviar Mensagem';
+      }
+    } catch (error) {
+      alert('Erro de conexão ao enviar a mensagem. Tente novamente.');
+      btnEnviar.disabled = false;
+      btnEnviar.innerText = 'Enviar Mensagem';
+    }
+  });
+</script>
       </div>
 
       <!-- COLUNA 2: INFORMAÇÕES & ENDEREÇO -->
