@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 2rem;
+  padding: 0 1.5rem;
 }
 
 /* Logo */
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6,
   display: flex;               /* Força os itens a ficarem LADO A LADO */
   flex-direction: row;         /* Alinhamento na horizontal */
   list-style: none;            /* Remove as bolinhas do <ul> */
-  gap: 2rem;                   /* Espaçamento entre as opções */
+  gap: 1.2rem;                   /* Espaçamento entre as opções */
   align-items: center;
 }
 
