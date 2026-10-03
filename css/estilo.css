@@ -5,7 +5,7 @@
    ========================================================================== */
 :root {
   /* Cores Extraídas do Manual da Marca */
-  --color-primary: #0b1f3a;        /* Azul Escuro */
+  --color-primary: #132e54;        /* Azul Escuro */
   --color-secondary: #6d8193;      /* Cinza Azulado */
   --color-bg-light: #ededed;       /* Cinza Claro */
   --color-white: #ffffff;
@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5, h6,
    ========================================================================== */
 .hero {
   background-color: #ededed; /* Cinza claro da paleta */
-  color: #0b1f3a;            /* Azul escuro para contraste */
+  color: #132e54a;         /* Azul escuro para contraste */
   text-align: center;
   padding: 3.5rem 1.5rem;
   border-bottom: 3px solid #6d8193; /* Detalhe em cinza azulado */
@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, h6,
 }
 .hero-subtext {
   font-size: 1rem;
-  color: #334155;            /* Texto secundário escuro legível */
+  color: #132e54         /* Texto secundário escuro legível */
   font-weight: 400;
   font-style: italic;
 }
@@ -523,7 +523,7 @@ h1, h2, h3, h4, h5, h6,
 /* Ícones nos Cards dos Pilares */
 .icon-card {
   font-size: 2.2rem;
-  color: #0b1f3a;
+  color: #132e54;
   margin-bottom: 1rem;
 }
 
@@ -542,14 +542,14 @@ h1, h2, h3, h4, h5, h6,
   text-align: center;
   width: 100%; /* Ocupa 100% da largura do container, alinhando com as pontas dos pilares */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-top: 4px solid #0b1f3a;
+  border-top: 4px solid #132e54;
 }
 
 .leader-avatar {
   width: 80px;
   height: 80px;
   background-color: #ededed;
-  color: #0b1f3a;
+  color: #132e54;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -559,7 +559,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .leader-card h3 {
-  color: #0b1f3a;
+  color: #132e54;
   font-size: 1.4rem;
   margin-bottom: 0.3rem;
 }
@@ -587,7 +587,7 @@ h1, h2, h3, h4, h5, h6,
   padding: 2.5rem 2rem;
   width: 100%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-top: 5px solid #0b1f3a;
+  border-top: 5px solid #132e54;
   margin-bottom: 3rem;
   color: #334155;
   line-height: 1.7;
@@ -615,7 +615,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .schedule-table thead {
-  background-color: #0b1f3a;
+  background-color: #132e54;
   color: #ffffff;
 }
 
@@ -659,7 +659,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .event-date {
-  background-color: #0b1f3a;
+  background-color: #132e54;
   color: #ffffff;
   padding: 0.8rem 1rem;
   border-radius: 10px;
@@ -684,7 +684,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .event-details h3 {
-  color: #0b1f3a;
+  color: #132e54;
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
 }
@@ -742,12 +742,12 @@ h1, h2, h3, h4, h5, h6,
 
 .class-icon {
   font-size: 2rem;
-  color: #0b1f3a;
+  color: #132e54;
 }
 
 .class-badge {
   background-color: #ededed;
-  color: #0b1f3a;
+  color: #132e54;
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 0.8rem;
@@ -756,7 +756,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .ebd-class-card h3 {
-  color: #0b1f3a;
+  color: #132e54;
   font-size: 1.25rem;
   margin-bottom: 0.3rem;
 }
@@ -804,7 +804,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .download-info h4 {
-  color: #0b1f3a;
+  color: #132e54;
   font-size: 1rem;
   margin-bottom: 0.2rem;
 }
@@ -816,7 +816,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .btn-download-sm {
-  background-color: #0b1f3a;
+  background-color: #132e54;
   color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -854,11 +854,11 @@ h1, h2, h3, h4, h5, h6,
   border-radius: var(--radius-md, 12px);
   padding: 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-top: 4px solid #0b1f3a;
+  border-top: 4px solid #132e54;
 }
 
 .contact-title {
-  color: #0b1f3a;
+  color: #132e54;
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
   display: flex;
@@ -883,7 +883,7 @@ h1, h2, h3, h4, h5, h6,
 .form-group label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #0b1f3a;
+  color: #132e54;
 }
 
 .form-group input,
@@ -904,13 +904,13 @@ h1, h2, h3, h4, h5, h6,
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #0b1f3a;
+  border-color: #132e54;
   box-shadow: 0 0 0 3px rgba(11, 31, 58, 0.15);
   background-color: #ffffff;
 }
 
 .btn-submit {
-  background-color: #0b1f3a;
+  background-color: #132e54;
   color: #ffffff;
   border: none;
   padding: 0.85rem 1.5rem;
@@ -933,19 +933,19 @@ h1, h2, h3, h4, h5, h6,
 /* Itens de Informação de Contato */
 .info-item {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-staalrt;
   gap: 1rem;
   margin-bottom: 1.2rem;
 }
 
 .info-icon {
   font-size: 1.5rem;
-  color: #0b1f3a;
+  color: #132e54;
   margin-top: 0.2rem;
 }
 
 .info-item h4 {
-  color: #0b1f3a;
+  color: #132e54;
   font-size: 1rem;
   margin-bottom: 0.2rem;
 }
@@ -986,7 +986,7 @@ h1, h2, h3, h4, h5, h6,
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-top: 4px solid #0b1f3a;
+  border-top: 4px solid #132e54;
   padding: 2rem 1.5rem;
 }
 
@@ -1000,7 +1000,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .pastor-info h3 {
-  color: #0b1f3a;
+  color: #132e54;
   font-size: 1.3rem;
   margin-bottom: 0.3rem;
 }
