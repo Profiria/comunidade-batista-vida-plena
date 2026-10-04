@@ -1,0 +1,56 @@
+/* ==========================================
+   TEMA ESCURO
+   ========================================== */
+
+/* Quando a classe .dark-theme estiver ativa no body */
+body.dark-theme {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+/* Fundo e bordas dos cartões */
+body.dark-theme .card,
+body.dark-theme .area-card,
+body.dark-theme .contact-card,
+body.dark-theme .history-card,
+body.dark-theme .pix-card,
+body.dark-theme .ebd-card,
+body.dark-theme .leader-card,
+body.dark-theme .pastor-card,
+body.dark-theme .video-card {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  border-top-color: #32bcad !important;
+}
+
+/* Textos e Títulos no Modo Escuro */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme .section-title,
+body.dark-theme .contact-title,
+body.dark-theme label {
+  color: #f8fafc !important;
+}
+
+body.dark-theme p,
+body.dark-theme .pix-instructions,
+body.dark-theme .pastor-role,
+body.dark-theme .leader-role {
+  color: #cbd5e1 !important;
+}
+
+/* Ícones */
+body.dark-theme i {
+  color: #32bcad !important;
+}
+
+/* Campos do formulário e PIX */
+body.dark-theme input,
+body.dark-theme select,
+body.dark-theme textarea {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
