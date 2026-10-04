@@ -111,3 +111,33 @@ function copiarPix() {
     console.error("Erro ao copiar chave PIX: ", err);
   });
 }
+
+  // ==========================================
+// ALTERNADOR DE TEMA (CLARO / ESCURO)
+// ==========================================
+
+const toggleBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+// 1. Verifica se o usuário já havia escolhido o tema escuro antes
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-theme');
+  if (themeIcon) {
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
+  }
+}
+
+// 2. Alterna o tema ao clicar no botão
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    
+    if (document.body.classList.contains('dark-theme')) {
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+      localStorage.setItem('theme', 'dark'); // Salva a escolha no navegador
+    } else {
+      themeIcon.classList.replace('fa-sun', 'fa-moon');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+}
