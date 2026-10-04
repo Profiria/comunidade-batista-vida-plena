@@ -1,8 +1,11 @@
 /* Importação da fonte Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap');
+
 /* ==========================================================================
-   DESIGN SYSTEM - TOKENS
+   DESIGN SYSTEM - TOKENS & TEMAS (CLARO / ESCURO)
    ========================================================================== */
+
+/* 1. TEMA CLARO (PADRÃO DO SITE) */
 :root {
   /* Cores Extraídas do Manual da Marca */
   --color-primary: #132e54;        /* Azul Escuro */
@@ -11,6 +14,14 @@
   --color-white: #ffffff;
   --color-text-dark: #1f2937;
   --color-accent-blue: #006699;
+
+  /* Mapeamento Dinâmico de Cores (Tema Claro) */
+  --bg-principal: #ededed;
+  --bg-card: #ffffff;
+  --texto-principal: #1f2937;
+  --texto-secundario: #6d8193;
+  --cor-destaque: #32bcad;
+  --borda-card: #e2e8f0;
 
   /* Gradients */
   --gradient-blue: linear-gradient(135deg, #0b1f3a 0%, #004080 100%);
@@ -23,6 +34,17 @@
   --radius-sm: 6px;
   --radius-md: 12px;
   --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 2. TEMA ESCURO (ATIVADO VIA CLIQUE) */
+body.dark-theme {
+  --bg-principal: #0f172a;       /* Azul escuro noturno */
+  --bg-card: #1e293b;            /* Cartões com tom grafite */
+  --texto-principal: #f8fafc;    /* Textos em branco suave */
+  --texto-secundario: #cbd5e1;  /* Subtítulos em cinza claro */
+  --cor-destaque: #32bcad;       /* Verde turquesa vibrante */
+  --borda-card: #334155;
+  --color-text-dark: #f8fafc;
 }
 
 /* Reset básico */
@@ -40,37 +62,18 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-family-title) !important;
 }
 
-}
+/* APLICAÇÃO DOS TEMAS NO BODY */
 body {
   font-family: var(--font-family-base);
-  background-color: var(--color-bg-light);
-  color: var(--color-text-dark);
-  line-height: 1.6;
-}
-
-/* ==========================================
-   CONFIGURAÇÃO DE TEMAS (CLARO / ESCURO)
-   ========================================== */
-
-/* 2. Tema Escuro (Ativado via clique) */
-body.dark-theme {
-  --bg-principal: #0f172a;       /* Azul escuro noturno */
-  --bg-card: #1e293b;            /* Cartões com tom grafite */
-  --texto-principal: #f8fafc;    /* Textos em branco suave */
-  --texto-secundario: #cbd5e1;  /* Subtítulos em cinza claro */
-  --cor-destaque: #32bcad;       /* Verde turquesa vibrante */
-  --borda-card: #334155;
-}
-
-/* 3. Aplicação nos elementos do site */
-body {
   background-color: var(--bg-principal);
   color: var(--texto-principal);
+  line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.contact-card, .pix-card, .history-card {
-  background-color: var(--bg-card) !important;
+/* APLICAÇÃO DOS CARTÕES E ELEMENTOS DINÂMICOS */
+.contact-card, .pix-card, .history-card, .area-card {
+  background-color: var(--bg-card);
   border-color: var(--borda-card);
 }
 
@@ -98,6 +101,7 @@ p, .pix-instructions {
   background-color: var(--cor-destaque);
   color: #ffffff;
 }
+
 /* ==========================================================================
    CABEÇALHO & NAV
    ========================================================================== */
