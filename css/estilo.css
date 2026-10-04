@@ -65,6 +65,17 @@ h1, h2, h3, h4, h5, h6,
   color: var(--texto-principal);
 }
 
+/* Títulos dentro de cartões/banners escuros no topo das páginas */
+.hero h1,
+.mission-banner h2,
+.ebd-intro-banner h2,
+div[style*="background-color: #0b1f3a"] h2,
+div[style*="background-color: #132e54"] h2,
+div[style*="background-color: #0b1f3a"] h3,
+div[style*="background-color: #132e54"] h3 {
+  color: #ffffff !important;
+}
+
 /* APLICAÇÃO DOS TEMAS NO BODY */
 body {
   font-family: var(--font-family-base);
@@ -305,42 +316,28 @@ body.dark-theme .hero h1 {
 /* ==========================================================================
    5. CARDS DE ACESSO RÁPIDO E COMPONENTES
    ========================================================================== */
-.grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
+/* CARTÕES E COMPONENTES */
 .card, .area-card, .contact-card, .history-card, .pix-card, .ebd-card, .leader-card, .pastor-card {
   background-color: var(--bg-card) !important;
   border-radius: var(--radius-md);
   padding: 2rem;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--borda-card);
-  border-top: 4px solid var(--cor-destaque);
+  border-top: 4px solid var(--color-primary) !important; /* Bordas com a cor azul primária no tema claro */
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.card:hover, .pastor-card:hover {
-  transform: translateY(-5px);
+/* No Modo Escuro, a borda do topo assume o verde destaque */
+body.dark-theme .card, 
+body.dark-theme .area-card, 
+body.dark-theme .contact-card, 
+body.dark-theme .history-card, 
+body.dark-theme .pix-card, 
+body.dark-theme .ebd-card, 
+body.dark-theme .leader-card, 
+body.dark-theme .pastor-card {
+  border-top: 4px solid var(--cor-destaque) !important;
 }
-
-.btn-card {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #132e54;
-  color: #ffffff !important;
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.btn-card:hover {
-  background-color: var(--cor-destaque);
-}
-
 /* ==========================================================================
    6. CARROSSEL DE EVENTOS / SLIDER
    ========================================================================== */
