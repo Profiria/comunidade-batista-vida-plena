@@ -1209,3 +1209,45 @@ p, .pix-instructions {
 .history-card i {
   color: var(--cor-destaque) !important;
 }
+/* ==========================================================================
+   FORÇAGEM ABSOLUTA DO MODO ESCURO (SOBREPOSIÇÃO DE CSS)
+   ========================================================================== */
+
+/* 1. Mudar o fundo dos cartões quando o modo escuro estiver ativo */
+body.dark-theme .area-card,
+body.dark-theme .contact-card,
+body.dark-theme .history-card,
+body.dark-theme .pix-card,
+body.dark-theme .ebd-card,
+body.dark-theme div[class*="card"] {
+  background-color: #1e293b !important;
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* 2. Mudar a cor do texto/descrição para ficar 100% legível */
+body.dark-theme .area-card p,
+body.dark-theme .contact-card p,
+body.dark-theme .history-card p,
+body.dark-theme .pix-card p,
+body.dark-theme p {
+  color: #cbd5e1 !important;
+}
+
+/* 3. Mudar a cor dos títulos dentro dos cartões */
+body.dark-theme .area-card h3,
+body.dark-theme .area-card h4,
+body.dark-theme .contact-card h3,
+body.dark-theme .contact-card label,
+body.dark-theme h1, 
+body.dark-theme h2, 
+body.dark-theme h3 {
+  color: #f8fafc !important;
+}
+
+/* 4. Destaque dos ícones no verde turquesa */
+body.dark-theme .area-card i,
+body.dark-theme .contact-card i,
+body.dark-theme i {
+  color: #32bcad !important;
+}
