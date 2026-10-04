@@ -1170,3 +1170,42 @@ p, .pix-instructions {
     flex-direction: column;
   }
 }
+
+/* ==========================================
+   AJUSTE FINO DO MODO ESCURO PARA OS CARTÕES
+   ========================================== */
+
+/* Força os cartões a usarem o fundo do tema */
+.area-card, 
+.contact-card, 
+.history-card, 
+.pix-card,
+.ebd-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--borda-card) !important;
+}
+
+/* Força os títulos dos cartões a ficarem claros no modo escuro */
+.area-card h3, 
+.area-card h4,
+.contact-card h3,
+.contact-card label,
+.history-card h3,
+.pix-card h3 {
+  color: var(--texto-principal) !important;
+}
+
+/* Força as descrições dos cartões a usarem a cor secundária visível */
+.area-card p, 
+.contact-card p, 
+.history-card p, 
+.pix-card p {
+  color: var(--texto-secundario) !important;
+}
+
+/* Ajuste da cor dos ícones dentro dos cartões */
+.area-card i, 
+.contact-card i, 
+.history-card i {
+  color: var(--cor-destaque) !important;
+}
