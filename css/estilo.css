@@ -1,11 +1,8 @@
-/* Importação da fonte Montserrat e Inter */
+/* Importação da fonte Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap');
-
 /* ==========================================================================
-   1. DESIGN SYSTEM - TOKENS & TEMAS (CLARO / ESCURO)
+   DESIGN SYSTEM - TOKENS
    ========================================================================== */
-
-/* TEMA CLARO (PADRÃO DO SITE) */
 :root {
   /* Cores Extraídas do Manual da Marca */
   --color-primary: #132e54;        /* Azul Escuro */
@@ -14,15 +11,6 @@
   --color-white: #ffffff;
   --color-text-dark: #1f2937;
   --color-accent-blue: #006699;
-  --color-hover: #32bcad;
-
-  /* Mapeamento Dinâmico de Cores (Tema Claro) */
-  --bg-principal: #ededed;
-  --bg-card: #ffffff;
-  --texto-principal: #1f2937;
-  --texto-secundario: #6d8193;
-  --cor-destaque: #32bcad;
-  --borda-card: #e2e8f0;
 
   /* Gradients */
   --gradient-blue: linear-gradient(135deg, #0b1f3a 0%, #004080 100%);
@@ -37,23 +25,18 @@
   --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* TEMA ESCURO (ATIVADO VIA CLIQUE) */
-body.dark-theme {
-  --bg-principal: #0f172a;       /* Azul escuro noturno */
-  --bg-card: #1e293b;            /* Cartões com tom grafite */
-  --texto-principal: #f8fafc;    /* Textos em branco suave */
-  --texto-secundario: #cbd5e1;  /* Subtítulos em cinza claro */
-  --cor-destaque: #32bcad;       /* Verde turquesa vibrante */
-  --borda-card: #334155;
-  --color-text-dark: #f8fafc;
-  --color-primary: #0b1f3a;
-}
-
-/* RESET BÁSICO */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  line-height: 1.6;
 }
 
 /* MONTSERRAT EM TODOS OS TÍTULOS E SUBTÍTULOS */
@@ -62,41 +45,16 @@ h1, h2, h3, h4, h5, h6,
 .mission-quote,
 .contact-title {
   font-family: var(--font-family-title) !important;
-  color: var(--texto-principal);
-}
-
-/* Títulos dentro de cartões/banners escuros no topo das páginas */
-.hero h1,
-.mission-banner h2,
-.ebd-intro-banner h2,
-div[style*="background-color: #0b1f3a"] h2,
-div[style*="background-color: #132e54"] h2,
-div[style*="background-color: #0b1f3a"] h3,
-div[style*="background-color: #132e54"] h3 {
-  color: #ffffff !important;
-}
-
-/* APLICAÇÃO DOS TEMAS NO BODY */
-body {
-  font-family: var(--font-family-base);
-  background-color: var(--bg-principal);
-  color: var(--texto-principal);
-  line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-p, .pix-instructions {
-  color: var(--texto-secundario);
 }
 
 /* ==========================================================================
-   2. CABEÇALHO, NAV & REDES SOCIAIS
+   CABEÇALHO & NAV
    ========================================================================== */
 .header {
-  background-color: #132e54; /* Mantém fundo azul escuro do topo em ambos os temas */
+  background-color: var(--color-primary); /* Fundo Azul Escuro */
   width: 100%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  box-sizing: border-box;
+ box-sizing: border-box;
 }
 
 .navbar {
@@ -114,12 +72,12 @@ p, .pix-instructions {
   display: flex;
   align-items: center;
   text-decoration: none;
-  background-color: transparent;
+  background-color: transparent; /* Remove o fundo branco */
   padding: 0;
 }
 
 .logo-img {
-  height: 50px;
+  height: 60px;          /* Altura ideal para dar destaque */
   width: auto;
   display: block;
   object-fit: contain;
@@ -128,87 +86,32 @@ p, .pix-instructions {
 
 /* Menu de Navegação Horizontal */
 .nav-menu {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  gap: 0.8rem;
+  display: flex;               /* Força os itens a ficarem LADO A LADO */
+  flex-direction: row;         /* Alinhamento na horizontal */
+  list-style: none;            /* Remove as bolinhas do <ul> */
+  gap: 0.8rem;                   /* Espaçamento entre as opções */
   align-items: center;
   margin: 0;
   padding: 0;
 }
 
 .nav-link {
-  color: #ffffff;
-  text-decoration: none;
+  color: var(--color-white);   /* Texto branco sobre o fundo azul */
+  text-decoration: none;       /* Remove o sublinhado */
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 600;            /* Deixa a fonte mais nítida/encorpada */
   white-space: nowrap;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: var(--cor-destaque);
+  color: var(--color-hover);   /* Mudança de cor ao passar o mouse */
 }
 
 .nav-link.active {
   color: #ffffff;
-  border-bottom: 2px solid var(--cor-destaque);
+  border-bottom: 2px solid var(--color-secondary); /* Indicador da página atual */
   padding-bottom: 4px;
-}
-
-/* Ícones das Redes Sociais e Alternador de Tema */
-.header-social, .header-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  flex-shrink: 0;
-  margin-left: 0.5rem;
-}
-
-.social-icon {
-  color: #ffffff;
-  font-size: 1.3rem;
-  transition: transform 0.2s ease, color 0.3s ease;
-  text-decoration: none;
-}
-
-.social-icon:hover {
-  color: var(--cor-destaque);
-  transform: translateY(-2px);
-}
-
-/* Linha Divisória no Cabeçalho */
-.divider {
-  display: inline-block;
-  width: 1px;
-  height: 20px;
-  background-color: rgba(255, 255, 255, 0.35);
-  margin: 0 4px;
-}
-
-/* Botão de Alternar Tema (BRANCO no Cabeçalho) */
-.btn-theme {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  color: #ffffff !important;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-}
-
-.btn-theme i {
-  color: #ffffff !important;
-}
-
-.btn-theme:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: #ffffff;
 }
 
 /* Menu Hambúrguer (Mobile) */
@@ -222,49 +125,44 @@ p, .pix-instructions {
 .hamburger span {
   width: 25px;
   height: 3px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   border-radius: 2px;
 }
 
 /* ==========================================================================
-   3. HERO SECTION
+   HERO SECTION
    ========================================================================== */
 .hero {
-  background-color: var(--bg-card);
-  color: var(--texto-principal);
+  background-color: #ededed; /* Cinza claro da paleta */
+  color: #132e54;         /* Azul escuro para contraste */
   text-align: center;
   padding: 3.5rem 1.5rem;
-  border-bottom: 3px solid var(--color-secondary);
+  border-bottom: 3px solid #6d8193; /* Detalhe em cinza azulado */
 }
 
 .hero h1 {
   font-size: 2.4rem;
   font-weight: 700;
-  color: var(--color-accent-blue);
+  color: #006699;            /* Azul */
   margin-bottom: 0.5rem;
-}
-
-body.dark-theme .hero h1 {
-  color: #38bdf8 !important;
 }
 
 .hero p.tagline {
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 3px;
-  color: var(--texto-secundario);
+  color: #6d8193;            /* Cinza azulado da paleta */
   margin-bottom: 0.8rem;
 }
-
 .hero-subtext {
   font-size: 1rem;
-  color: var(--texto-principal);
+  color: #132e54;       /* Texto secundário escuro legível */
   font-weight: 400;
   font-style: italic;
 }
 
 /* ==========================================================================
-   4. ESTRUTURA GERAL & VÍDEO YOUTUBE
+   SEÇÃO PREGAÇÃO / YOUTUBE
    ========================================================================== */
 .container {
   max-width: 1100px;
@@ -274,23 +172,24 @@ body.dark-theme .hero h1 {
 
 .section-title {
   text-align: center;
+  color: var(--color-primary);
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   position: relative;
 }
 
 .video-card {
-  background: var(--bg-card);
+  background: var(--color-white);
   border-radius: var(--radius-md);
   padding: 1.5rem;
   box-shadow: var(--shadow-card);
   margin-bottom: 3rem;
-  border: 1px solid var(--borda-card);
 }
 
+/* Embed de Vídeo Responsivo (Aspect Ratio 16:9) */
 .video-responsive {
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 56.25%; /* 16:9 */
   height: 0;
   overflow: hidden;
   border-radius: var(--radius-sm);
@@ -310,48 +209,156 @@ body.dark-theme .hero h1 {
 }
 
 .video-info h3 {
+  color: var(--color-primary);
   margin-bottom: 0.5rem;
 }
 
 /* ==========================================================================
-   5. CARDS DE ACESSO RÁPIDO E COMPONENTES
+   CARDS DE ACESSO RÁPIDO
    ========================================================================== */
-/* CARTÕES E COMPONENTES */
-.card, .area-card, .contact-card, .history-card, .pix-card, .ebd-card, .leader-card, .pastor-card {
-  background-color: var(--bg-card) !important;
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--borda-card);
-  border-top: 4px solid var(--color-primary) !important; /* Bordas com a cor azul primária no tema claro */
-  transition: transform 0.3s ease, background-color 0.3s ease;
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
-/* No Modo Escuro, a borda do topo assume o verde destaque */
-body.dark-theme .card, 
-body.dark-theme .area-card, 
-body.dark-theme .contact-card, 
-body.dark-theme .history-card, 
-body.dark-theme .pix-card, 
-body.dark-theme .ebd-card, 
-body.dark-theme .leader-card, 
-body.dark-theme .pastor-card {
-  border-top: 4px solid var(--cor-destaque) !important;
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.btn-card {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-card:hover {
+  background-color: var(--color-secondary);
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-primary);
+    padding: 1.5rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+/* Container do Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Imagem da Logomarca */
+.logo-img {
+  height: 45px; /* Ajusta a altura conforme o tamanho ideal */
+  width: auto;  /* Mantém a proporção da imagem */
+  object-fit: contain;
 }
 /* ==========================================================================
-   6. CARROSSEL DE EVENTOS / SLIDER
+   ÍCONES DAS REDES SOCIAIS NO CABEÇALHO
    ========================================================================== */
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0; /* Impede que o bloco seja espremido ou jogado pra fora */
+  margin-left: 0.5rem
+}
+
+.social-icon {
+  color: var(--color-white);
+  font-size: 1.3rem;
+  transition: transform 0.2s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: var(--color-hover);
+  transform: translateY(-2px); /* Efeito suave de elevação ao passar o rato */
+}
+
+/* Ajuste Responsivo para Mobile */
+@media (max-width: 768px) {
+  .header-social {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}
+  /* ==========================================================================
+   CARROSSEL DE EVENTOS / SLIDER (CORRIGIDO)
+   ========================================================================== */
+
+/* Container Principal do Carrossel */
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 450px;
-  border-radius: var(--radius-md);
+  height: 450px; /* Altura ideal fixa para não achatar os flyers */
+  border-radius: var(--radius-md, 12px);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   margin-bottom: 3rem;
-  background-color: #0b1f3a;
+  background-color: #0b1f3a; /* Fundo escuro oficial para preencher bordas */
 }
 
+/* Regra Base do Slide (Esconde os inativos) */
 .carousel-slide {
   position: absolute;
   top: 0;
@@ -366,20 +373,25 @@ body.dark-theme .pastor-card {
   justify-content: center;
 }
 
+/* Slide Ativo (Mostra na tela) */
 .carousel-slide.active {
   opacity: 1;
   visibility: visible;
   z-index: 1;
 }
 
-.carousel-slide img, .slide-bg-img, .slide-full-img {
+/* Imagens dos Slides (Mostrar a arte 100% sem cortes) */
+.carousel-slide img,
+.slide-bg-img,
+.slide-full-img {
   width: 100%;
   height: 100%;
-  object-fit: contain !important;
+  object-fit: contain !important; /* Preserva a proporção exata da arte */
   object-position: center;
   display: block;
 }
 
+/* Textos sobrepostos (caso o slide use texto em HTML) */
 .slide-content {
   position: absolute;
   bottom: 2rem;
@@ -387,7 +399,7 @@ body.dark-theme .pastor-card {
   right: 2rem;
   z-index: 2;
   color: #ffffff;
-  background: rgba(11, 31, 58, 0.85);
+  background: rgba(11, 31, 58, 0.75); /* Fundo sutil para leitura */
   padding: 1.5rem;
   border-radius: 8px;
   backdrop-filter: blur(4px);
@@ -396,21 +408,49 @@ body.dark-theme .pastor-card {
 .slide-content h3 {
   font-size: 1.8rem;
   margin: 0.5rem 0;
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .slide-content p {
   font-size: 1rem;
-  color: #ededed !important;
+  color: #ededed;
   margin-bottom: 1.2rem;
   max-width: 600px;
 }
 
+.slide-badge {
+  background-color: #6d8193;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.btn-slide {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #0b1f3a;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-slide:hover {
+  background-color: #ededed;
+}
+
+/* Botões de Avançar/Voltar */
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   color: #ffffff;
   border: none;
   font-size: 1.5rem;
@@ -421,10 +461,14 @@ body.dark-theme .pastor-card {
   transition: background-color 0.3s ease;
 }
 
-.carousel-btn:hover { background-color: rgba(0, 0, 0, 0.8); }
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .carousel-btn.prev { left: 15px; }
 .carousel-btn.next { right: 15px; }
 
+/* Indicadores (Dots) */
 .carousel-dots {
   position: absolute;
   bottom: 12px;
@@ -441,7 +485,7 @@ body.dark-theme .pastor-card {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, width 0.3s ease;
 }
 
 .dot.active {
@@ -449,17 +493,18 @@ body.dark-theme .pastor-card {
   width: 22px;
   border-radius: 10px;
 }
-
 /* ==========================================================================
-   7. PÁGINA SOBRE NÓS & LIDERANÇA
+   PÁGINA SOBRE NÓS
    ========================================================================== */
+
+/* Bloco da Missão Central */
 .mission-banner {
-  background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%) !important;
+ background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%) !important;
   color: #ffffff !important;
   padding: 2.5rem 2rem;
   border-radius: 12px;
   text-align: center;
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
 }
 
@@ -468,7 +513,6 @@ body.dark-theme .pastor-card {
   font-weight: 600;
   font-style: italic;
   margin-bottom: 0.5rem;
-  color: #ffffff !important;
 }
 
 .mission-subtitle {
@@ -479,22 +523,36 @@ body.dark-theme .pastor-card {
   font-weight: 600;
 }
 
+/* Ícones nos Cards dos Pilares */
 .icon-card {
   font-size: 2.2rem;
-  color: var(--cor-destaque);
+  color: #132e54;
   margin-bottom: 1rem;
 }
 
+/* ==========================================================================
+   LIDERANÇA PASTORAL & BLOCOS LARGOS (100% de Largura)
+   ========================================================================== */
 .leadership-container {
   width: 100%;
   margin-bottom: 3rem;
 }
 
+.leader-card {
+  background: #ffffff;
+  border-radius: var(--radius-md, 12px);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  width: 100%; /* Ocupa 100% da largura do container, alinhando com as pontas dos pilares */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #132e54;
+}
+
 .leader-avatar {
   width: 80px;
   height: 80px;
-  background-color: var(--bg-principal);
-  color: var(--cor-destaque);
+  background-color: #ededed;
+  color: #132e54;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -503,41 +561,53 @@ body.dark-theme .pastor-card {
   margin: 0 auto 1.2rem auto;
 }
 
-.leader-role, .pastor-role {
+.leader-card h3 {
+  color: #132e54;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.leader-role {
   display: block;
-  font-size: 0.85rem;
-  color: var(--texto-secundario);
+  font-size: 0.9rem;
+  color: #6d8193;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
-.pastors-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  justify-content: center;
-  align-items: stretch;
+.leader-card p {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 800px; /* Mantém o texto agradável de ler ao centro */
+  margin: 0 auto;
 }
 
-@media (max-width: 992px) {
-  .pastors-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-}
-
-@media (max-width: 768px) {
-  .pastors-grid { grid-template-columns: 1fr; }
+/* Bloco para "Nossa História" (Card Largo de 100%) */
+.history-card {
+  background: #ffffff;
+  border-radius: var(--radius-md, 12px);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid #132e54;
+  margin-bottom: 3rem;
+  color: #334155;
+  line-height: 1.7;
+  font-size: 1rem;
 }
 
 /* ==========================================================================
-   8. PROGRAMAÇÃO & TABELAS
+   PÁGINA DE PROGRAMAÇÃO & TABELAS RESPONSIVAS
    ========================================================================== */
+
+/* Container da Tabela com Rolagem para Telas Pequenas */
 .table-responsive {
   width: 100%;
   overflow-x: auto;
-  box-shadow: var(--shadow-card);
-  border-radius: var(--radius-md);
-  background-color: var(--bg-card);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md, 12px);
+  background-color: #ffffff;
 }
 
 .schedule-table {
@@ -552,17 +622,29 @@ body.dark-theme .pastor-card {
   color: #ffffff;
 }
 
-.schedule-table th, .schedule-table td {
+.schedule-table th, 
+.schedule-table td {
   padding: 1.2rem 1.5rem;
-  border-bottom: 1px solid var(--borda-card);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.schedule-table th {
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .schedule-table tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: #f8fafc;
 }
 
+/* Linha em Destaque para o Culto Principal */
+.schedule-table tr.highlight-row {
+  background-color: #f1f5f9;
+}
+
+/* Badge de Horário */
 .badge-time {
-  background-color: var(--color-secondary);
+  background-color: #6d8193;
   color: #ffffff;
   padding: 4px 10px;
   border-radius: 6px;
@@ -570,6 +652,7 @@ body.dark-theme .pastor-card {
   font-size: 0.85rem;
 }
 
+/* Cartões de Eventos com Data em Destaque */
 .event-card {
   display: flex;
   align-items: center;
@@ -585,52 +668,178 @@ body.dark-theme .pastor-card {
   border-radius: 10px;
   text-align: center;
   min-width: 70px;
+  display: flex;
+  flex-direction: column;
 }
 
-.event-date .day { font-size: 1.6rem; font-weight: 700; line-height: 1; }
-.event-date .month { font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; color: #a0b2c6; }
+.event-date .day {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
 
+.event-date .month {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #a0b2c6;
+  margin-top: 2px;
+}
+
+.event-details h3 {
+  color: #132e54;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.event-details p {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 /* ==========================================================================
-   9. ESCOLA BÍBLICA (EBD)
+   PÁGINA DA ESCOLA BÍBLICA (EBD)
    ========================================================================== */
+
+/* Banner introdutório da EBD */
 .ebd-intro-banner {
   background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%) !important;
   color: #ffffff !important;
   padding: 2.5rem 2rem;
   border-radius: 12px;
   text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
 }
 
-.ebd-intro-banner p { color: #cbd5e1 !important; }
+.ebd-intro-banner h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+.ebd-intro-banner p {
+  color: #cbd5e1 !important; /* Cinza claro de altíssimo contraste */
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  margin-top: 0.5rem;
+}
+
+/* Cartões das Classes */
+.ebd-class-card {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ebd-class-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.class-icon {
+  font-size: 2rem;
+  color: #132e54;
+}
+
+.class-badge {
+  background-color: #ededed;
+  color: #132e54;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ebd-class-card h3 {
+  color: #132e54;
+  font-size: 1.25rem;
+  margin-bottom: 0.3rem;
+}
+
+.class-teacher {
+  font-size: 0.85rem;
+  color: #6d8193;
+  margin-bottom: 0.8rem;
+}
+
+.ebd-class-card p {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Lista de Downloads de Materiais */
+.download-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
 .download-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.2rem;
-  background-color: var(--bg-card);
-  border: 1px solid var(--borda-card);
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.ppt-icon { font-size: 1.8rem; color: #d97706; }
+.download-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ppt-icon {
+  font-size: 1.8rem;
+  color: #d97706; /* Cor laranja característica de apresentações/slides */
+}
+
+.download-info h4 {
+  color: #132e54;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.download-info p {
+  color: #64748b;
+  font-size: 0.82rem;
+  margin: 0;
+}
 
 .btn-download-sm {
   background-color: #132e54;
-  color: #ffffff !important;
+  color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.3s ease;
 }
 
+.btn-download-sm:hover {
+  background-color: #6d8193;
+}
 /* ==========================================================================
-   10. PÁGINA DE CONTATO & FORMULÁRIOS
+   PÁGINA DE CONTATO
    ========================================================================== */
+
+/* Grid em 2 Colunas no Desktop e 1 Coluna no Celular */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -638,9 +847,29 @@ body.dark-theme .pastor-card {
 }
 
 @media (max-width: 768px) {
-  .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
+.contact-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-md, 12px);
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #132e54;
+}
+
+.contact-title {
+  color: #132e54;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Estilização do Formulário */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -657,24 +886,30 @@ body.dark-theme .pastor-card {
 .form-group label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--texto-principal);
+  color: #132e54;
 }
 
-.form-group input, .form-group select, .form-group textarea {
+.form-group input,
+.form-group select,
+.form-group textarea {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 1px solid var(--borda-card);
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-family: inherit;
   font-size: 0.95rem;
-  color: var(--texto-principal);
-  background-color: var(--bg-principal);
-  outline: none;
-  transition: border-color 0.3s ease;
+  color: #334155;
+  background-color: #f8fafc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  border-color: var(--cor-destaque);
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #132e54;
+  box-shadow: 0 0 0 3px rgba(11, 31, 58, 0.15);
+  background-color: #ffffff;
 }
 
 .btn-submit {
@@ -686,14 +921,121 @@ body.dark-theme .pastor-card {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
 }
 
-.btn-submit:hover { background-color: var(--cor-destaque); }
+.btn-submit:hover {
+  background-color: #6d8193;
+}
+
+/* Itens de Informação de Contato */
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  color: #132e54;
+  margin-top: 0.2rem;
+}
+
+.info-item h4 {
+  color: #132e54;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.info-item p {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
 
 /* ==========================================================================
-   11. CARTÃO PIX E QR CODE
+   SEÇÃO LIDERANÇA PASTORAL (3 PASTORES ALINHADOS)
    ========================================================================== */
+
+.pastors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch; /* Garante que todos os cartões tenham a mesma altura */
+}
+
+/* Em telas médias ou tablets (ex: até 992px), fica em 2 ou 1 coluna */
+@media (max-width: 992px) {
+  .pastors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* Em celulares (até 768px), fica 1 cartão por linha */
+@media (max-width: 768px) {
+  .pastors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.pastor-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #132e54;
+  padding: 2rem 1.5rem;
+}
+
+.pastor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.pastor-info {
+  text-align: center;
+}
+
+.pastor-info h3 {
+  color: #132e54;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.pastor-role {
+  display: inline-block;
+  color: #6d8193;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.pastor-info p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: justify; /* Alinha o texto do texto pastoral deixando a leitura agradável */
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO DO CARTÃO PIX E QR CODE
+   ========================================================================== */
+
+.qr-code-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem 0;
+}
+
 .qr-code-img {
   width: 100%;
   max-width: 180px;
@@ -702,83 +1044,74 @@ body.dark-theme .pastor-card {
   background-color: #ffffff;
   border: 2px solid #0b1f3a;
   border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   display: block;
   margin: 0 auto;
 }
 
+.pix-instructions {
+  color: #475569;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* Grupo do campo + botão lado a lado no PC e empilhados no celular */
+
 .pix-input {
   width: 100%;
   padding: 0.75rem 0.9rem;
-  border: 1px solid var(--borda-card);
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
-  background-color: var(--bg-principal);
-  color: var(--texto-principal);
+  background-color: #f8fafc;
+  color: #0b1f3a;
   font-weight: 600;
   text-align: center;
+  font-size: 0.95rem;
+  outline: none;
 }
 
 .btn-pix {
-  background-color: #132e54;
+  background-color: #0b1f3a;
   color: #ffffff;
   border: none;
   padding: 0.75rem 1.2rem;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
+  white-space: nowrap;
   transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.btn-pix:hover { background-color: var(--cor-destaque); }
+.btn-pix:hover {
+  background-color: #32bcad;
+}
 
+/* Força o conteúdo do cartão PIX a ficar vertical e centralizado */
 .pix-card {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
+  width: 100% !important;
 }
 
 .pix-input-group {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 0.6rem;
   width: 100%;
   max-width: 400px;
+  margin: 0 auto;
 }
 
 @media (max-width: 480px) {
-  .pix-input-group { flex-direction: column; }
-}
-
-/* ==========================================================================
-   12. RODAPÉ E RESPONSIVIDADE
-   ========================================================================== */
-.footer {
-  background-color: #132e54;
-  color: #ffffff;
-  text-align: center;
-  padding: 2rem 1.5rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .hamburger { display: flex; }
-
-  .nav-menu {
-    display: none;
+  .pix-input-group {
     flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #132e54;
-    padding: 1.5rem;
-  }
-
-  .nav-menu.active { display: flex; }
-  .hero h1 { font-size: 1.8rem; }
-  
-  .header-social, .header-actions {
-    margin-top: 1rem;
-    justify-content: center;
   }
 }
