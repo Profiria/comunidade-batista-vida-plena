@@ -32,13 +32,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: var(--font-family-base);
-  background-color: var(--color-bg-light);
-  color: var(--color-text-dark);
-  line-height: 1.6;
-}
-
 /* MONTSERRAT EM TODOS OS TÍTULOS E SUBTÍTULOS */
 h1, h2, h3, h4, h5, h6,
 .section-title,
@@ -46,6 +39,64 @@ h1, h2, h3, h4, h5, h6,
 .contact-title {
   font-family: var(--font-family-title) !important;
 }
+
+}
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+}
+
+/* ==========================================
+   CONFIGURAÇÃO DE TEMAS (CLARO / ESCURO)
+   ========================================== */
+
+/* 2. Tema Escuro (Ativado via clique) */
+body.dark-theme {
+  --bg-principal: #0f172a;       /* Azul escuro noturno */
+  --bg-card: #1e293b;            /* Cartões com tom grafite */
+  --texto-principal: #f8fafc;    /* Textos em branco suave */
+  --texto-secundario: #cbd5e1;  /* Subtítulos em cinza claro */
+  --cor-destaque: #32bcad;       /* Verde turquesa vibrante */
+  --borda-card: #334155;
+}
+
+/* 3. Aplicação nos elementos do site */
+body {
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-card, .pix-card, .history-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--borda-card);
+}
+
+p, .pix-instructions {
+  color: var(--texto-secundario);
+}
+
+/* Estilo do botão de alternar tema no cabeçalho */
+.btn-theme {
+  background: transparent;
+  border: 1px solid var(--cor-destaque);
+  color: var(--cor-destaque);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-theme:hover {
+  background-color: var(--cor-destaque);
+  color: #ffffff;
 
 /* ==========================================================================
    CABEÇALHO & NAV
