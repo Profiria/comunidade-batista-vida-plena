@@ -54,3 +54,28 @@ body.dark-theme textarea {
   color: #f8fafc !important;
   border-color: #334155 !important;
 }
+
+/* ==========================================
+   AJUSTE DO HERO NO TEMA ESCURO
+   ========================================== */
+
+/* 1. Muda o fundo do bloco Hero para um azul escuro noturno */
+body.dark-theme .hero {
+  background-color: #1e293b !important;
+  border-bottom-color: #334155 !important;
+}
+
+/* 2. Título principal em branco destacado */
+body.dark-theme .hero h1 {
+  color: #ffffff !important;
+}
+
+/* 3. Tagline (VIVER • AMAR • SERVIR) num verde turquesa vibrante */
+body.dark-theme .hero p.tagline {
+  color: #32bcad !important;
+}
+
+/* 4. Subtexto em cinza claro bem legível */
+body.dark-theme .hero-subtext {
+  color: #cbd5e1 !important;
+}
