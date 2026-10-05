@@ -143,7 +143,7 @@ h1, h2, h3, h4, h5, h6,
 .hero h1 {
   font-size: 2.4rem;
   font-weight: 700;
-  color: #006699;            /* Azul */
+  color: var(--color-primary);            /* Azul escuro */
   margin-bottom: 0.5rem;
 }
 
