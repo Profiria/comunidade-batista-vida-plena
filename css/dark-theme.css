@@ -1,14 +1,14 @@
 /* ==========================================
-   TEMA ESCURO
+   TEMA ESCURO - VERSÃO CORRIGIDA
    ========================================== */
 
-/* Quando a classe .dark-theme estiver ativa no body */
+/* 1. Fundo geral */
 body.dark-theme {
   background-color: #0f172a !important;
   color: #f8fafc !important;
 }
 
-/* Fundo e bordas dos cartões */
+/* 2. Cartões gerais */
 body.dark-theme .card,
 body.dark-theme .area-card,
 body.dark-theme .contact-card,
@@ -16,14 +16,26 @@ body.dark-theme .history-card,
 body.dark-theme .pix-card,
 body.dark-theme .ebd-card,
 body.dark-theme .leader-card,
-body.dark-theme .pastor-card,
 body.dark-theme .video-card {
   background-color: #1e293b !important;
   border-color: #334155 !important;
   border-top-color: #32bcad !important;
 }
 
-/* Textos e Títulos no Modo Escuro */
+/* 3. MANTÉM OS CARDS DOS PASTORES NO ESTILO ORIGINAL (Sem escurecer o fundo interno do texto) */
+body.dark-theme .pastor-card {
+  background-color: #1e293b !important;
+  border-top-color: #32bcad !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .pastor-info,
+body.dark-theme .pastor-card p {
+  background-color: transparent !important;
+  color: #cbd5e1 !important;
+}
+
+/* 4. Textos e Títulos gerais */
 body.dark-theme h1,
 body.dark-theme h2,
 body.dark-theme h3,
@@ -46,7 +58,7 @@ body.dark-theme i {
   color: #32bcad !important;
 }
 
-/* Campos do formulário e PIX */
+/* Formulários e Inputs */
 body.dark-theme input,
 body.dark-theme select,
 body.dark-theme textarea {
@@ -58,36 +70,20 @@ body.dark-theme textarea {
 /* ==========================================
    AJUSTE DO HERO NO TEMA ESCURO
    ========================================== */
-
-/* 1. Muda o fundo do bloco Hero para um azul escuro noturno */
 body.dark-theme .hero {
   background-color: #1e293b !important;
   border-bottom-color: #334155 !important;
 }
 
-/* 2. Título principal em branco destacado */
-body.dark-theme .hero h1 {
-  color: #ffffff !important;
-}
-
-/* 3. Tagline (VIVER • AMAR • SERVIR) num verde turquesa vibrante */
-body.dark-theme .hero p.tagline {
-  color: #32bcad !important;
-}
-
-/* 4. Subtexto em cinza claro bem legível */
-body.dark-theme .hero-subtext {
-  color: #cbd5e1 !important;
-}
+body.dark-theme .hero h1 { color: #ffffff !important; }
+body.dark-theme .hero p.tagline { color: #32bcad !important; }
+body.dark-theme .hero-subtext { color: #cbd5e1 !important; }
 
 /* ==========================================
-   CORREÇÃO 1: TABELA DE PROGRAMAÇÃO
+   PROGRAMAÇÃO & EBD
    ========================================== */
-
 body.dark-theme .table-responsive,
-body.dark-theme .schedule-table {
-  background-color: #1e293b !important;
-}
+body.dark-theme .schedule-table { background-color: #1e293b !important; }
 
 body.dark-theme .schedule-table td,
 body.dark-theme .schedule-table td strong {
@@ -95,61 +91,39 @@ body.dark-theme .schedule-table td strong {
   border-bottom-color: #334155 !important;
 }
 
-body.dark-theme .schedule-table tbody tr {
-  background-color: #1e293b !important;
-}
-
-body.dark-theme .schedule-table tbody tr.highlight-row {
-  background-color: #0f172a !important;
-}
-
-body.dark-theme .schedule-table tbody tr:hover {
-  background-color: #334155 !important;
-}
-
-/* ==========================================
-   CORREÇÃO 2: DOWNLOADS E BOTOES EBD
-   ========================================== */
+body.dark-theme .schedule-table tbody tr { background-color: #1e293b !important; }
+body.dark-theme .schedule-table tbody tr.highlight-row { background-color: #0f172a !important; }
 
 body.dark-theme .download-item {
   background-color: #0f172a !important;
   border-color: #334155 !important;
 }
 
-body.dark-theme .download-info h4 {
-  color: #f8fafc !important;
-}
-
-body.dark-theme .download-info p {
-  color: #cbd5e1 !important;
-}
-
-body.dark-theme .btn-download-sm {
-  background-color: #32bcad !important;
-  color: #0f172a !important;
-}
+body.dark-theme .download-info h4 { color: #f8fafc !important; }
+body.dark-theme .download-info p { color: #cbd5e1 !important; }
 
 /* ==========================================
-   CORREÇÃO 3: CARD DE AVISO (MISSÕES / OMF)
+   FORÇAGEM TOTAL DO CARD DE MISSÕES (OMF)
    ========================================== */
 
-body.dark-theme div[style*="background-color: #e6f4ea"],
-body.dark-theme div[style*="background-color:#e6f4ea"],
-body.dark-theme div[class*="notice"],
-body.dark-theme div[class*="info"],
-body.dark-theme div[class*="alert"] {
+/* Pega QUALQUER div/caixa interna da página de missões que esteja ficando branca */
+body.dark-theme .container div[class*="card"] div,
+body.dark-theme .container div[class*="info"],
+body.dark-theme .container div[class*="notice"],
+body.dark-theme .container div[class*="alert"],
+body.dark-theme .container div[style] {
   background-color: #0f172a !important;
-  border: 1px solid #334155 !important;
+  border-color: #334155 !important;
 }
 
-/* Força os textos internos do aviso a ficarem visíveis */
-body.dark-theme div[style*="background-color: #e6f4ea"] *,
-body.dark-theme div[class*="notice"] *,
-body.dark-theme div[class*="info"] * {
+/* Força todos os textos e frases dentro dessa caixa a ficarem visíveis */
+body.dark-theme .container div[class*="card"] div *,
+body.dark-theme .container div[class*="info"] *,
+body.dark-theme .container div[class*="notice"] * {
   color: #cbd5e1 !important;
 }
 
-body.dark-theme div[style*="background-color: #e6f4ea"] strong,
-body.dark-theme div[class*="notice"] strong {
+body.dark-theme .container div[class*="card"] div strong,
+body.dark-theme .container div[class*="notice"] strong {
   color: #ffffff !important;
 }
