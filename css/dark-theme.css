@@ -1,14 +1,14 @@
 /* ==========================================
-   TEMA ESCURO - VERSÃO CORRIGIDA
+   TEMA ESCURO - BASE
    ========================================== */
 
-/* 1. Fundo geral */
+/* 1. Fundo e texto geral */
 body.dark-theme {
   background-color: #0f172a !important;
   color: #f8fafc !important;
 }
 
-/* 2. Cartões gerais */
+/* 2. Cartões Padrão (Fundo grafite e borda azul/verde no topo) */
 body.dark-theme .card,
 body.dark-theme .area-card,
 body.dark-theme .contact-card,
@@ -16,26 +16,14 @@ body.dark-theme .history-card,
 body.dark-theme .pix-card,
 body.dark-theme .ebd-card,
 body.dark-theme .leader-card,
+body.dark-theme .pastor-card,
 body.dark-theme .video-card {
   background-color: #1e293b !important;
   border-color: #334155 !important;
   border-top-color: #32bcad !important;
 }
 
-/* 3. MANTÉM OS CARDS DOS PASTORES NO ESTILO ORIGINAL (Sem escurecer o fundo interno do texto) */
-body.dark-theme .pastor-card {
-  background-color: #1e293b !important;
-  border-top-color: #32bcad !important;
-  border-color: #334155 !important;
-}
-
-body.dark-theme .pastor-info,
-body.dark-theme .pastor-card p {
-  background-color: transparent !important;
-  color: #cbd5e1 !important;
-}
-
-/* 4. Textos e Títulos gerais */
+/* 3. Títulos e Textos Gerais */
 body.dark-theme h1,
 body.dark-theme h2,
 body.dark-theme h3,
@@ -53,12 +41,11 @@ body.dark-theme .leader-role {
   color: #cbd5e1 !important;
 }
 
-/* Ícones */
 body.dark-theme i {
   color: #32bcad !important;
 }
 
-/* Formulários e Inputs */
+/* 4. Formulários */
 body.dark-theme input,
 body.dark-theme select,
 body.dark-theme textarea {
@@ -68,13 +55,12 @@ body.dark-theme textarea {
 }
 
 /* ==========================================
-   AJUSTE DO HERO NO TEMA ESCURO
+   HERO / BANNER DE ENTRADA
    ========================================== */
 body.dark-theme .hero {
   background-color: #1e293b !important;
   border-bottom-color: #334155 !important;
 }
-
 body.dark-theme .hero h1 { color: #ffffff !important; }
 body.dark-theme .hero p.tagline { color: #32bcad !important; }
 body.dark-theme .hero-subtext { color: #cbd5e1 !important; }
@@ -98,32 +84,29 @@ body.dark-theme .download-item {
   background-color: #0f172a !important;
   border-color: #334155 !important;
 }
-
 body.dark-theme .download-info h4 { color: #f8fafc !important; }
 body.dark-theme .download-info p { color: #cbd5e1 !important; }
 
 /* ==========================================
-   FORÇAGEM TOTAL DO CARD DE MISSÕES (OMF)
+   MISSÕES (APENAS A CAIXA DO CENTAVO ,07)
    ========================================== */
 
-/* Pega QUALQUER div/caixa interna da página de missões que esteja ficando branca */
-body.dark-theme .container div[class*="card"] div,
-body.dark-theme .container div[class*="info"],
-body.dark-theme .container div[class*="notice"],
-body.dark-theme .container div[class*="alert"],
-body.dark-theme .container div[style] {
+/* Mire especificamente na classe da caixa de aviso da OMF */
+body.dark-theme .omf-notice,
+body.dark-theme .identificador-box,
+body.dark-theme .alert-info {
   background-color: #0f172a !important;
-  border-color: #334155 !important;
-}
-
-/* Força todos os textos e frases dentro dessa caixa a ficarem visíveis */
-body.dark-theme .container div[class*="card"] div *,
-body.dark-theme .container div[class*="info"] *,
-body.dark-theme .container div[class*="notice"] * {
+  border: 1px solid #334155 !important;
   color: #cbd5e1 !important;
 }
 
-body.dark-theme .container div[class*="card"] div strong,
-body.dark-theme .container div[class*="notice"] strong {
+body.dark-theme .omf-notice *,
+body.dark-theme .identificador-box *,
+body.dark-theme .alert-info * {
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme .omf-notice strong,
+body.dark-theme .identificador-box strong {
   color: #ffffff !important;
 }
