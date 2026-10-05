@@ -1138,3 +1138,88 @@ h1, h2, h3, h4, h5, h6,
   margin: 0;
   line-height: 1.5;
 }
+
+/* ==========================================
+   REFLEXÃO PASTORAL (PÁGINA INICIAL)
+   ========================================== */
+.reflexao-section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.reflexao-card {
+  background-color: #ffffff;
+  border-left: 5px solid #32bcad; /* Destaque verde turquesa */
+  padding: 1.8rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.reflexao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 0.8rem;
+}
+
+.autor-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-aspas {
+  font-size: 1.8rem;
+  color: #32bcad;
+}
+
+.autor-info h3 {
+  font-size: 1.1rem;
+  color: #132e54;
+  margin: 0;
+}
+
+.reflexao-data {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.badge-tag {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.reflexao-titulo {
+  font-size: 1.25rem;
+  color: #132e54;
+  margin-bottom: 0.8rem;
+}
+
+.reflexao-body p {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.98rem;
+  margin-bottom: 0.8rem;
+}
+
+.reflexao-footer {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.btn-ler-mais {
+  color: #32bcad;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.btn-ler-mais:hover {
+  text-decoration: underline;
+}
