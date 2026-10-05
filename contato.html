@@ -6,6 +6,7 @@
   <title>Contato & Localização - Comunidade Batista Vida Plena</title>
   <link rel="stylesheet" href="css/estilo.css">
   <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="js/dark-theme.css">
   <!-- Ícones do Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -34,7 +35,6 @@
         <li><a href="missoes.html" class="nav-link">Missões</a></li>
         <li><a href="contato.html" class="nav-link active">Contato</a></li>
       </ul>
-
       <div class="header-social">
         <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
           <i class="fa-brands fa-instagram"></i>
@@ -42,6 +42,12 @@
         <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="YouTube">
           <i class="fa-brands fa-youtube"></i>
         </a>
+        <!-- Divisória visual (barrinha vertical) -->
+        <span class="divider"></span>
+        <!-- Botão de Alternar Tema (No final) -->
+        <button id="theme-toggle" class="btn-theme" aria-label="Alternar Tema">
+        <i id="theme-icon" class="fa-solid fa-moon"></i>
+        </button>
       </div>
     </nav>
   </header>
@@ -159,6 +165,7 @@
 
   <!-- SCRIPT EXTERNO UNIFICADO -->
   <script src="js/script.js"></script>
+  <script src="js/theme.js"><script>
 
 </body>
 </html>
