@@ -79,3 +79,77 @@ body.dark-theme .hero p.tagline {
 body.dark-theme .hero-subtext {
   color: #cbd5e1 !important;
 }
+
+/* ==========================================
+   CORREÇÃO 1: TABELA DE PROGRAMAÇÃO
+   ========================================== */
+
+body.dark-theme .table-responsive,
+body.dark-theme .schedule-table {
+  background-color: #1e293b !important;
+}
+
+body.dark-theme .schedule-table td,
+body.dark-theme .schedule-table td strong {
+  color: #f8fafc !important;
+  border-bottom-color: #334155 !important;
+}
+
+body.dark-theme .schedule-table tbody tr {
+  background-color: #1e293b !important;
+}
+
+body.dark-theme .schedule-table tbody tr.highlight-row {
+  background-color: #0f172a !important;
+}
+
+body.dark-theme .schedule-table tbody tr:hover {
+  background-color: #334155 !important;
+}
+
+/* ==========================================
+   CORREÇÃO 2: DOWNLOADS E BOTOES EBD
+   ========================================== */
+
+body.dark-theme .download-item {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .download-info h4 {
+  color: #f8fafc !important;
+}
+
+body.dark-theme .download-info p {
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme .btn-download-sm {
+  background-color: #32bcad !important;
+  color: #0f172a !important;
+}
+
+/* ==========================================
+   CORREÇÃO 3: CARD DE AVISO (MISSÕES / OMF)
+   ========================================== */
+
+body.dark-theme div[style*="background-color: #e6f4ea"],
+body.dark-theme div[style*="background-color:#e6f4ea"],
+body.dark-theme div[class*="notice"],
+body.dark-theme div[class*="info"],
+body.dark-theme div[class*="alert"] {
+  background-color: #0f172a !important;
+  border: 1px solid #334155 !important;
+}
+
+/* Força os textos internos do aviso a ficarem visíveis */
+body.dark-theme div[style*="background-color: #e6f4ea"] *,
+body.dark-theme div[class*="notice"] *,
+body.dark-theme div[class*="info"] * {
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme div[style*="background-color: #e6f4ea"] strong,
+body.dark-theme div[class*="notice"] strong {
+  color: #ffffff !important;
+}
