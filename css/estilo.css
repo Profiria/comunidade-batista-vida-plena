@@ -1115,3 +1115,26 @@ h1, h2, h3, h4, h5, h6,
     flex-direction: column;
   }
 }
+.omf-box {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin-top: 1rem;
+}
+
+.omf-box h4 {
+  color: #166534;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.omf-box p {
+  color: #15803d;
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
