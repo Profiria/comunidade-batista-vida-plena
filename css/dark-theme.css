@@ -125,3 +125,27 @@ body.dark-theme .omf-box p,
 body.dark-theme .omf-box strong {
   color: #f8fafc !important;
 }
+
+/* Reflexão Pastoral no Tema Escuro */
+body.dark-theme .reflexao-card {
+  background-color: #1e293b !important;
+  border-left-color: #32bcad !important;
+}
+
+body.dark-theme .reflexao-header {
+  border-bottom-color: #334155 !important;
+}
+
+body.dark-theme .reflexao-titulo,
+body.dark-theme .autor-info h3 {
+  color: #f8fafc !important;
+}
+
+body.dark-theme .reflexao-body p {
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme .badge-tag {
+  background-color: #0f172a !important;
+  color: #38bdf8 !important;
+}
