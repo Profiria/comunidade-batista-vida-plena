@@ -110,3 +110,18 @@ body.dark-theme .omf-notice strong,
 body.dark-theme .identificador-box strong {
   color: #ffffff !important;
 }
+
+/* DE: #f0fdf4 PARA: #0f172a no Dark Mode */
+body.dark-theme .omf-box {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .omf-box h4 {
+  color: #32bcad !important;
+}
+
+body.dark-theme .omf-box p,
+body.dark-theme .omf-box strong {
+  color: #f8fafc !important;
+}
