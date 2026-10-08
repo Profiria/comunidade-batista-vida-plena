@@ -1310,3 +1310,18 @@ h1, h2, h3, h4, h5, h6,
   color: #64748b;
   font-size: 0.9rem;
 }
+
+/* Justifica o texto dos parágrafos dentro dos cards de áreas/ministérios */
+.card p,
+.area-card p,
+.area-description {
+  text-align: justify;
+  /* Evita espaços muito grandes entre as palavras ao justificar em colunas estreitas */
+  hyphens: auto; 
+}
+
+/* Se as citações/visões também usarem <blockquote> ou a classe da visão: */
+.card blockquote,
+.vision-box {
+  text-align: justify;
+}
