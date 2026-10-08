@@ -78,3 +78,54 @@
     font-weight: bold !important;
   }
 }
+
+/* Ativa o menu hambúrguer até 900px de largura */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex !important; /* Mostra o ícone de três linhas */
+  }
+
+  .nav-menu {
+    display: none; /* Esconde a lista horizontal de links */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-primary);
+    padding: 1.5rem;
+  }
+
+  .nav-menu.active {
+    display: flex; /* Abre o menu quando clicado */
+  }
+}
+/* 1. PADRÃO PARA CELULARES (Telas até 760px)
+   No celular em pé, o card deve ocupar quase a tela toda (95%) 
+   para o texto não ficar espremido com margens grandes. */
+.container {
+  width: 95%;
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+/* 2. TABLETS E CELULARES DEITADOS (De 761px até 1000px)
+   Aqui ele ocupa 90% da largura. */
+@media (min-width: 761px) and (max-width: 1000px) {
+  .container {
+    width: 90%;
+    max-width: 90vw;
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* 3. COMPUTADORES E MONITORES (Acima de 1000px)
+   Em telas grandes, limita a 80vw ou 1200px para manter a leitura confortável. */
+@media (min-width: 1001px) {
+  .container {
+    width: 80%;
+    max-width: 80vw;
+    padding: 3rem 2rem;
+  }
+}
