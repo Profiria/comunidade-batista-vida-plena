@@ -129,3 +129,27 @@
     padding: 3rem 2rem;
   }
 }
+
+/* ==========================================================================
+   AJUSTE EXCLUSIVO PARA CELULAR NA HORIZONTAL (LANDSCAPE)
+   ========================================================================== */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  
+  /* Ajusta os recuos do cabeçalho sem afetar o modo em pé ou computador */
+  .header-container,
+  .nav-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Garante o contraste do botão do menu no tema escuro */
+  body.dark-theme .menu-toggle,
+  body.dark-mode .menu-toggle {
+    border: 1px solid var(--color-accent-blue, #32bcad);
+  }
+
+  body.dark-theme .menu-toggle i,
+  body.dark-mode .menu-toggle i {
+    color: #ffffff;
+  }
+}
