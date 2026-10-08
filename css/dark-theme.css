@@ -151,3 +151,31 @@ body.dark-theme .badge-tag {
   background-color: #0f172a !important;
   color: #38bdf8 !important;
 }
+/* ==========================================================================
+   AJUSTE DA GALERIA DE FAMÍLIAS PARA O TEMA ESCURO
+   ========================================================================== */
+
+/* Altera o fundo do card para um tom escuro/azulado e ajusta as bordas */
+body.dark-theme .family-card,
+body.dark-mode .family-card {
+  background-color: #1e293b !important; /* Tom escuro para harmonizar com a página */
+  border-top-color: var(--color-accent-blue, #32bcad); /* Destaque da borda */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Ajusta a cor do container da foto quando estiver sem imagem */
+body.dark-theme .family-photo-container,
+body.dark-mode .family-photo-container {
+  background-color: #0f172a;
+}
+
+/* Garante o contraste correto dos textos no modo escuro */
+body.dark-theme .family-info h3,
+body.dark-mode .family-info h3 {
+  color: #ffffff !important; /* Título bem visível em branco */
+}
+
+body.dark-theme .family-info p,
+body.dark-mode .family-info p {
+  color: #94a3b8 !important; /* Subtítulo em cinza claro */
+}
