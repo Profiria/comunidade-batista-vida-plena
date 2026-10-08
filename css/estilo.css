@@ -1159,29 +1159,34 @@ h1, h2, h3, h4, h5, h6,
   margin: 0;
   line-height: 1.5;
 }
-
-/* ==========================================
+/* ==========================================================================
    REFLEXÃO PASTORAL (PÁGINA INICIAL)
-   ========================================== */
+   ========================================================================== */
 .reflexao-section {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
+/* Card Principal */
+.card-reflexao,
 .reflexao-card {
-  background-color: #ffffff;
-  border-left: none;
-  padding: 1.8rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background-color: var(--color-white) !important;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid var(--color-primary, #132e54);
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  text-align: left;
 }
 
+/* Cabeçalho do Card (CORRIGIDO) */
 .reflexao-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.2rem;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
   padding-bottom: 0.8rem;
 }
 
@@ -1196,17 +1201,21 @@ h1, h2, h3, h4, h5, h6,
   color: #32bcad;
 }
 
-.autor-info h3 {
+.autor-info h3,
+#reflexao-autor {
   font-size: 1.1rem;
-  color: #132e54;
+  color: var(--color-primary, #132e54);
   margin: 0;
 }
 
-.reflexao-data {
+.reflexao-data,
+#reflexao-data {
   font-size: 0.85rem;
   color: #64748b;
 }
 
+/* Tag / Badge de Identificação */
+.tag-reflexao,
 .badge-tag {
   background-color: #e0f2fe;
   color: #0369a1;
@@ -1216,32 +1225,52 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 600;
 }
 
-.reflexao-titulo {
+/* Título e Versículo */
+.reflexao-titulo,
+#reflexao-titulo {
   font-size: 1.25rem;
-  color: #132e54;
+  color: var(--color-primary, #132e54);
   margin-bottom: 0.8rem;
 }
 
-.reflexao-body p {
-  color: #475569;
+#reflexao-verso {
+  font-style: italic;
+  color: var(--color-secondary, #6d8193);
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-primary, #132e54);
+}
+
+/* Corpo do Texto Principal */
+.reflexao-body p,
+#reflexao-texto {
+  text-align: justify;
   line-height: 1.6;
+  color: #334155;
   font-size: 0.98rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
+  hyphens: auto;
 }
 
+/* Rodapé do Card e Links */
 .reflexao-footer {
   margin-top: 1rem;
   text-align: right;
 }
 
-.btn-ler-mais {
-  color: #32bcad;
+.btn-ler-mais,
+.link-lideranca {
+  display: inline-block;
+  color: var(--color-primary, #132e54);
   font-weight: 600;
   text-decoration: none;
   font-size: 0.9rem;
+  transition: color 0.2s ease;
 }
 
-.btn-ler-mais:hover {
+.btn-ler-mais:hover,
+.link-lideranca:hover {
+  color: #32bcad;
   text-decoration: underline;
 }
 
