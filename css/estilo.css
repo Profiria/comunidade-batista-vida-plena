@@ -1170,7 +1170,7 @@ h1, h2, h3, h4, h5, h6,
 /* Card Principal */
 .card-reflexao,
 .reflexao-card {
-  background-color: var(--color-white) !important;
+  background-color: var(--color-white);
   border-radius: 12px;
   padding: 2rem 2.5rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
