@@ -1,7 +1,7 @@
 // Arquivo: Texto-reflexoes.js
 window.historicoReflexoes = [
   {
-    autor: "Pr. Luiz",
+    autor: "Nome autor",
     data: "Outubro de 2026",
     foto: "",
     titulo: "O Valor da Perseverança na Caminhada",
