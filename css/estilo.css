@@ -1354,3 +1354,57 @@ h1, h2, h3, h4, h5, h6,
 .vision-box {
   text-align: justify;
 }
+
+/* ==========================================================================
+   AJUSTE DE NAVEGAÇÃO E MENU HAMBÚRGUER (MODO HORIZONTAL / LANDSCAPE)
+   ========================================================================== */
+
+/* Ajusta o espaçamento do cabeçalho em telas pequenas e na horizontal */
+.header-container,
+.nav-container,
+header .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 1.2rem !important;  /* Traz o logo e o menu para perto das bordas */
+  padding-right: 1.2rem !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilização e destaque do Botão Hambúrguer */
+.menu-toggle,
+.hamburger-btn,
+.btn-menu {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid var(--color-accent-blue, #32bcad); /* Borda visível para destacar */
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Cor das três linhas ou do ícone do hambúrguer */
+.menu-toggle i,
+.menu-toggle .bar,
+.hamburger-btn i,
+.hamburger-btn span {
+  color: #ffffff !important;           /* Deixa o ícone/linhas brancos */
+  background-color: #ffffff;           /* Se o menu for feito de varetas/divs */
+  font-size: 1.5rem;
+}
+
+/* Destaque no Modo Escuro */
+body.dark-theme .menu-toggle,
+body.dark-mode .menu-toggle {
+  border-color: #32bcad !important;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .menu-toggle i,
+body.dark-mode .menu-toggle i {
+  color: #ffffff !important;
+}
