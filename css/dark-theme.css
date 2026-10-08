@@ -17,7 +17,9 @@ body.dark-theme .pix-card,
 body.dark-theme .ebd-card,
 body.dark-theme .leader-card,
 body.dark-theme .pastor-card,
-body.dark-theme .video-card {
+body.dark-theme .video-card,
+body.dark-theme .family-card,
+body.dark-theme .card-reflexão {
   background-color: #1e293b !important;
   border-color: #334155 !important;
   border-top-color: #32bcad !important;
