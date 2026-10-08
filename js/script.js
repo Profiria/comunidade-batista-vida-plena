@@ -112,29 +112,20 @@ function copiarPix() {
   });
 }
 
-//Seção Reflexão
-// Preenche o Card de Reflexão com a mensagem mais recente do texto-reflexoes.js
-document.addEventListener("DOMContentLoaded", () => {
-  const elementoData = document.getElementById('reflexao-data');
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof historicoReflexoes !== 'undefined' && historicoReflexoes.length > 0) {
+    const atual = historicoReflexoes[0]; // Pega sempre o item mais recente da lista
 
-  // Verifica se o card existe na página e se o arquivo de dados foi carregado
-  if (elementoData && typeof historicoReflexoes !== 'undefined' && historicoReflexoes.length > 0) {
-    const atual = historicoReflexoes[0]; // Pega sempre o item no topo da lista (mais recente)
-
-    if (document.getElementById('reflexao-autor')) {
-      document.getElementById('reflexao-autor').innerText = atual.autor;
-    }
-    if (document.getElementById('reflexao-data')) {
-      document.getElementById('reflexao-data').innerText = atual.data;
-    }
-    if (document.getElementById('reflexao-titulo')) {
-      document.getElementById('reflexao-titulo').innerText = atual.titulo;
-    }
-    if (document.getElementById('reflexao-verso')) {
-      document.getElementById('reflexao-verso').innerText = atual.verso;
-    }
-    if (document.getElementById('reflexao-texto')) {
-      document.getElementById('reflexao-texto').innerText = atual.texto;
+    document.getElementById('reflexao-autor').textContent = atual.autor;
+    document.getElementById('reflexao-data').textContent = atual.data;
+    document.getElementById('reflexao-titulo').textContent = atual.titulo;
+    document.getElementById('reflexao-verso').textContent = atual.verso;
+    document.getElementById('reflexao-texto').textContent = atual.texto;
+    
+    const fotoElem = document.getElementById('reflexao-foto');
+    if (fotoElem && atual.foto) {
+      fotoElem.src = atual.foto;
+      fotoElem.alt = `Foto do ${atual.autor}`;
     }
   }
 });
