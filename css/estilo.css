@@ -1245,3 +1245,69 @@ h1, h2, h3, h4, h5, h6,
 .btn-ler-mais:hover {
   text-decoration: underline;
 }
+
+/* ==========================================================================
+   GALERIA DE FAMÍLIAS PASTORAIS (PÁGINA SOBRE NÓS)
+   ========================================================================== */
+.family-section {
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.family-subtitle {
+  text-align: center;
+  color: var(--color-secondary);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.family-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid var(--color-primary);
+}
+
+.family-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.family-photo-container {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Formato paisagem harmonioso para fotos de grupo/família */
+  overflow: hidden;
+  background-color: #f4f4f4;
+}
+
+.family-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Preenche o espaço mantendo o enquadramento bonito */
+  object-position: center;
+}
+
+.family-info {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.family-info h3 {
+  color: var(--color-primary);
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.family-info p {
+  color: #64748b;
+  font-size: 0.9rem;
+}
