@@ -1297,11 +1297,11 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .family-card {
-  background-color: var(--color-white);
+  background-color: var(--bg-card, var(--color-white));
   border-radius: var(--radius-md, 12px);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   border-top: 4px solid var(--color-primary);
 }
 
@@ -1330,13 +1330,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .family-info h3 {
-  color: var(--color-primary);
+  color: var(--text-color-primary, var(--color-primary));
   font-size: 1.15rem;
   margin-bottom: 0.3rem;
 }
 
 .family-info p {
-  color: #64748b;
+  color: var(--text-color-secondary, #64748b);
   font-size: 0.9rem;
 }
 
