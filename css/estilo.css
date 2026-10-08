@@ -46,6 +46,12 @@ h1, h2, h3, h4, h5, h6,
 .contact-title {
   font-family: var(--font-family-title) !important;
 }
+.container {
+  Width: 92%
+  max-width: 80vw;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
 
 /* ==========================================================================
    CABEÇALHO & NAV
@@ -165,11 +171,6 @@ h1, h2, h3, h4, h5, h6,
 /* ==========================================================================
    SEÇÃO PREGAÇÃO / YOUTUBE
    ========================================================================== */
-.container {
-  max-width: 80vw;
-  margin: 0 auto;
-  padding: 3rem 2rem;
-}
 
 .section-title {
   text-align: center;
