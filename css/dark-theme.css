@@ -179,3 +179,35 @@ body.dark-theme .family-info p,
 body.dark-mode .family-info p {
   color: #94a3b8 !important; /* Subtítulo em cinza claro */
 }
+
+/* ==========================================================================
+   REFLEXÃO MENSAL NO TEMA ESCURO
+   ========================================================================== */
+
+body.dark-theme .card-reflexao,
+body.dark-mode .card-reflexao,
+body.dark-theme .reflexao-card,
+body.dark-mode .reflexao-card {
+  background-color: #0f172a !important; /* Tom azul escuro/noturno do tema */
+  border-top-color: #32bcad !important;   /* Borda azul/turquesa de destaque */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Cores dos textos internos no modo escuro */
+body.dark-theme .card-reflexao h3,
+body.dark-theme .card-reflexao h4,
+body.dark-mode .card-reflexao h3,
+body.dark-mode .card-reflexao h4 {
+  color: #ffffff !important;
+}
+
+body.dark-theme #reflexao-texto,
+body.dark-mode #reflexao-texto {
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme #reflexao-verso,
+body.dark-mode #reflexao-verso {
+  color: #94a3b8 !important;
+  border-left-color: #32bcad !important;
+}
