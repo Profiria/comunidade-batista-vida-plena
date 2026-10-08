@@ -111,7 +111,7 @@ function copiarPix() {
     console.error("Erro ao copiar chave PIX: ", err);
   });
 }
-
+// 4. Seção Reflexões mensal
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof historicoReflexoes !== 'undefined' && historicoReflexoes.length > 0) {
     const atual = historicoReflexoes[0]; // Pega sempre o item mais recente da lista
