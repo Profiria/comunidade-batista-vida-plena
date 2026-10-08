@@ -113,19 +113,32 @@ function copiarPix() {
 }
 // 4. Seção Reflexões mensal
 document.addEventListener('DOMContentLoaded', () => {
-  if (typeof historicoReflexoes !== 'undefined' && historicoReflexoes.length > 0) {
-    const atual = historicoReflexoes[0]; // Pega sempre o item mais recente da lista
+  const dados = window.historicoReflexoes;
 
-    document.getElementById('reflexao-autor').textContent = atual.autor;
-    document.getElementById('reflexao-data').textContent = atual.data;
-    document.getElementById('reflexao-titulo').textContent = atual.titulo;
-    document.getElementById('reflexao-verso').textContent = atual.verso;
-    document.getElementById('reflexao-texto').textContent = atual.texto;
-    
+  if (dados && dados.length > 0) {
+    const atual = dados[0];
+
+    const autorElem = document.getElementById('reflexao-autor');
+    const dataElem = document.getElementById('reflexao-data');
+    const tituloElem = document.getElementById('reflexao-titulo');
+    const versoElem = document.getElementById('reflexao-verso');
+    const textoElem = document.getElementById('reflexao-texto');
     const fotoElem = document.getElementById('reflexao-foto');
-    if (fotoElem && atual.foto) {
-      fotoElem.src = atual.foto;
-      fotoElem.alt = `Foto do ${atual.autor}`;
+
+    if (autorElem) autorElem.textContent = atual.autor || '';
+    if (dataElem) dataElem.textContent = atual.data || '';
+    if (tituloElem) tituloElem.textContent = atual.titulo || '';
+    if (versoElem) versoElem.textContent = atual.verso || '';
+    if (textoElem) textoElem.textContent = atual.texto || '';
+
+    if (fotoElem) {
+      if (atual.foto) {
+        fotoElem.src = atual.foto;
+        fotoElem.alt = `Foto de ${atual.autor}`;
+        fotoElem.style.display = 'block';
+      } else {
+        fotoElem.style.display = 'none'; // Esconde a imagem se não houver foto cadastrada
+      }
     }
   }
 });
