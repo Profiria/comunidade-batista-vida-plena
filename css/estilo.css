@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .navbar {
-  max-width: 80vw
+  max-width: 80vw;
   margin: 0 auto;    /* Centraliza os elementos no meio da barra azul */
   display: flex;
   justify-content: space-between;
