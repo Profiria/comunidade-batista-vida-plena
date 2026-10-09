@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1.5rem; /* Adiciona 32px de folga/respiro nas laterais */
+  padding: 0.8rem 0; /* Adiciona 32px de folga/respiro nas laterais */
   box-sizing: border-box;
 }
 
