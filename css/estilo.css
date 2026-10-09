@@ -1,151 +1,1410 @@
+/* Importação da fonte Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap');
 /* ==========================================================================
-   1. REGRA GERAL PARA O CONTAINER DE CONTEÚDO (Telas Grandes / Desktop)
+   DESIGN SYSTEM - TOKENS
    ========================================================================== */
+:root {
+  /* Cores Extraídas do Manual da Marca */
+  --color-primary: #132e54;        /* Azul Escuro */
+  --color-secondary: #6d8193;      /* Cinza Azulado */
+  --color-bg-light: #ededed;       /* Cinza Claro */
+  --color-white: #ffffff;
+  --color-text-dark: #1f2937;
+  --color-accent-blue: #006699;
 
-/* Limita a largura do conteúdo do site e da navbar */
-.container,
-.navbar {
-  width: 80%;
-  max-width: 80vw;
-  margin: 0 auto;
+  /* Gradients */
+  --gradient-blue: linear-gradient(135deg, #0b1f3a 0%, #004080 100%);
+  
+  /* Tipografia */
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-title: 'Montserrat', sans-serif;
+   
+  /* Espaçamentos e Sombras */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.container {
-  padding: 3rem 2rem;
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  line-height: 1.6;
 }
 
-/* Ajuste da Navbar no Desktop */
+/* MONTSERRAT EM TODOS OS TÍTULOS E SUBTÍTULOS */
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.mission-quote,
+.contact-title {
+  font-family: var(--font-family-title) !important;
+}
+.container {
+  max-width: 80vw;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* ==========================================================================
+   CABEÇALHO & NAV
+   ========================================================================== */
+.header {
+  background-color: var(--color-primary); /* Fundo Azul Escuro */
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  max-width: 100vw;
+ box-sizing: border-box;
+}
+
 .navbar {
+  max-width: 80vw
+  margin: 0 auto;    /* Centraliza os elementos no meio da barra azul */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 1.5rem; /* Adiciona 32px de folga/respiro nas laterais */
+  box-sizing: border-box;
 }
 
-/* Agrupador dos ícones da direita (Redes Sociais + Modo Escuro) */
-.social-icons,
-.header-actions,
-.nav-right {
+/* Logo */
+.logo-container {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Espaço confortável entre cada ícone */
+  text-decoration: none;
+  background-color: transparent; /* Remove o fundo branco */
+  padding: 0;
+}
+
+.logo-img {
+  height: 60px;          /* Altura ideal para dar destaque */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Menu de Navegação Horizontal */
+.nav-menu {
+  display: flex;               /* Força os itens a ficarem LADO A LADO */
+  flex-direction: row;         /* Alinhamento na horizontal */
+  list-style: none;            /* Remove as bolinhas do <ul> */
+  gap: 0.8rem;                   /* Espaçamento entre as opções */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--color-white);   /* Texto branco sobre o fundo azul */
+  text-decoration: none;       /* Remove o sublinhado */
+  font-size: 1rem;
+  font-weight: 600;            /* Deixa a fonte mais nítida/encorpada */
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-hover);   /* Mudança de cor ao passar o mouse */
+}
+
+.nav-link.active {
+  color: #ffffff;
+  border-bottom: 2px solid var(--color-secondary); /* Indicador da página atual */
+  padding-bottom: 4px;
+}
+
+/* Menu Hambúrguer (Mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-white);
+  border-radius: 2px;
 }
 
 /* ==========================================================================
-   2. BREAKPOINTS DE TELA (Mobile & Tablet)
+   HERO SECTION
    ========================================================================== */
-
-/* Celulares em pé (até 760px) */
-@media (max-width: 760px) {
-  .container {
-    width: 95%;
-    max-width: 100vw;
-    padding: 1.5rem 1rem;
-  }
+.hero {
+  background-color: #ededed; /* Cinza claro da paleta */
+  color: var(--color-primary);         /* Azul escuro para contraste */
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  border-bottom: 3px solid #6d8193; /* Detalhe em cinza azulado */
 }
 
-/* Tablets (761px até 1000px) */
-@media (min-width: 761px) and (max-width: 1000px) {
-  .container {
-    width: 90%;
-    max-width: 90vw;
-    padding: 2rem 1.5rem;
-  }
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-primary);            /* Azul escuro */
+  margin-bottom: 0.5rem;
+}
+
+.hero p.tagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #6d8193;            /* Cinza azulado da paleta */
+  margin-bottom: 0.8rem;
+}
+.hero-subtext {
+  font-size: 1rem;
+  color: #132e54;       /* Texto secundário escuro legível */
+  font-weight: 400;
+  font-style: italic;
 }
 
 /* ==========================================================================
-   3. MENU RESPONSIVO MOBILE - GAVETA LATERAL (Apenas em pé: Portrait)
+   SEÇÃO PREGAÇÃO / YOUTUBE
    ========================================================================== */
 
-@media (max-width: 900px) and (orientation: portrait) {
+.section-title {
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
 
+.video-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 3rem;
+}
+
+/* Embed de Vídeo Responsivo (Aspect Ratio 16:9) */
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-info {
+  margin-top: 1rem;
+}
+
+.video-info h3 {
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   CARDS DE ACESSO RÁPIDO
+   ========================================================================== */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.btn-card {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-card:hover {
+  background-color: var(--color-secondary);
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
   .hamburger {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-around !important;
-    width: 30px !important;
-    height: 25px !important;
-    background: transparent !important;
-    border: none !important;
-    cursor: pointer !important;
-    z-index: 1000001 !important;
-  }
-
-  .hamburger span {
-    width: 100% !important;
-    height: 3px !important;
-    background-color: #ffffff !important;
-    border-radius: 2px !important;
+    display: flex;
   }
 
   .nav-menu {
-    display: flex !important;
-    flex-direction: column !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: -280px !important;
-    width: 280px !important;
-    height: 100vh !important;
-    background-color: #0b1f3a !important;
-    padding: 5rem 1.5rem 2rem 1.5rem !important;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5) !important;
-    z-index: 1000000 !important;
-    transition: left 0.3s ease-in-out !important;
-    overflow-y: auto !important;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-primary);
+    padding: 1.5rem;
   }
 
   .nav-menu.active {
-    left: 0 !important;
+    display: flex;
   }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+/* Container do Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Imagem da Logomarca */
+.logo-img {
+  height: 45px; /* Ajusta a altura conforme o tamanho ideal */
+  width: auto;  /* Mantém a proporção da imagem */
+  object-fit: contain;
+}
+/* ==========================================================================
+   ÍCONES DAS REDES SOCIAIS NO CABEÇALHO
+   ========================================================================== */
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0; /* Impede que o bloco seja espremido ou jogado pra fora */
+  margin-left: 0.5rem
+}
+
+.social-icon {
+  color: var(--color-white);
+  font-size: 1.3rem;
+  transition: transform 0.2s ease, color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: var(--color-hover);
+  transform: translateY(-2px); /* Efeito suave de elevação ao passar o rato */
+}
+
+/* Ajuste Responsivo para Mobile */
+@media (max-width: 768px) {
+  .header-social {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+}
+  /* ==========================================================================
+   CARROSSEL DE EVENTOS / SLIDER (CORRIGIDO)
+   ========================================================================== */
+
+/* Container Principal do Carrossel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 450px; /* Altura ideal fixa para não achatar os flyers */
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 3rem;
+  background-color: #0b1f3a; /* Fundo escuro oficial para preencher bordas */
+}
+
+/* Regra Base do Slide (Esconde os inativos) */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Slide Ativo (Mostra na tela) */
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+/* Imagens dos Slides (Mostrar a arte 100% sem cortes) */
+.carousel-slide img,
+.slide-bg-img,
+.slide-full-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important; /* Preserva a proporção exata da arte */
+  object-position: center;
+  display: block;
+}
+
+/* Textos sobrepostos (caso o slide use texto em HTML) */
+.slide-content {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  z-index: 2;
+  color: #ffffff;
+  background: rgba(11, 31, 58, 0.75); /* Fundo sutil para leitura */
+  padding: 1.5rem;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+}
+
+.slide-content h3 {
+  font-size: 1.8rem;
+  margin: 0.5rem 0;
+  color: #ffffff;
+}
+
+.slide-content p {
+  font-size: 1rem;
+  color: #ededed;
+  margin-bottom: 1.2rem;
+  max-width: 600px;
+}
+
+.slide-badge {
+  background-color: #6d8193;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.btn-slide {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #0b1f3a;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-slide:hover {
+  background-color: #ededed;
+}
+
+/* Botões de Avançar/Voltar */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 3;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev { left: 15px; }
+.carousel-btn.next { right: 15px; }
+
+/* Indicadores (Dots) */
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+.dot.active {
+  background-color: #ffffff;
+  width: 22px;
+  border-radius: 10px;
+}
+/* ==========================================================================
+   PÁGINA SOBRE NÓS
+   ========================================================================== */
+
+/* Bloco da Missão Central */
+.mission-banner {
+ background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%) !important;
+  color: #ffffff !important;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.mission-quote {
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.mission-subtitle {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #cbd5e1 !important;
+  font-weight: 600;
+}
+
+/* Ícones nos Cards dos Pilares */
+.icon-card {
+  font-size: 2.2rem;
+  color: #132e54;
+  margin-bottom: 1rem;
 }
 
 /* ==========================================================================
-   4. MODO LANDSCAPE (Celular Deitado / Telas Largas)
+   LIDERANÇA PASTORAL & BLOCOS LARGOS (100% de Largura)
+   ========================================================================== */
+.leadership-container {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.leader-card {
+  background: #ffffff;
+  border-radius: var(--radius-md, 12px);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  width: 100%; /* Ocupa 100% da largura do container, alinhando com as pontas dos pilares */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #132e54;
+}
+
+.leader-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: #ededed;
+  color: #132e54;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.2rem auto;
+}
+
+.leader-card h3 {
+  color: #132e54;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.leader-role {
+  display: block;
+  font-size: 0.9rem;
+  color: #6d8193;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.leader-card p {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 800px; /* Mantém o texto agradável de ler ao centro */
+  margin: 0 auto;
+}
+
+/* Bloco para "Nossa História" (Card Largo de 100%) */
+.history-card {
+  background: #ffffff;
+  border-radius: var(--radius-md, 12px);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid #132e54;
+  margin-bottom: 3rem;
+  color: #334155;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   PÁGINA DE PROGRAMAÇÃO & TABELAS RESPONSIVAS
    ========================================================================== */
 
-@media screen and (orientation: landscape) {
+/* Container da Tabela com Rolagem para Telas Pequenas */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md, 12px);
+  background-color: #ffffff;
+}
 
-  /* Fundo azul de ponta a ponta */
-  .header {
-    width: 100% !important;
-    background-color: #132e54 !important;
-  }
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
 
-  /* Conteúdo interno alinhado com o container */
-  .navbar {
-    width: 80% !important;
-    max-width: 80vw !important;
-    margin: 0 auto !important;
-    padding: 0.5rem 1.5rem !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-  }
+.schedule-table thead {
+  background-color: #132e54;
+  color: #ffffff;
+}
 
-  /* Esconde o hambúrguer no modo deitado */
-  .hamburger {
-    display: none !important;
-  }
+.schedule-table th, 
+.schedule-table td {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
 
-  /* Exibe os links na horizontal */
-  .nav-menu {
-    display: flex !important;
-    flex-direction: row !important;
-    position: static !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    gap: 0.8rem !important;
-    width: auto !important;
-    height: auto !important;
-  }
+.schedule-table th {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
-  .nav-menu a {
-    font-size: 0.85rem !important;
-    padding: 0.3rem 0.4rem !important;
-    color: #ffffff !important;
-    white-space: nowrap !important;
+.schedule-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Linha em Destaque para o Culto Principal */
+.schedule-table tr.highlight-row {
+  background-color: #f1f5f9;
+}
+
+/* Badge de Horário */
+.badge-time {
+  background-color: #6d8193;
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Cartões de Eventos com Data em Destaque */
+.event-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.event-date {
+  background-color: #132e54;
+  color: #ffffff;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-date .day {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.event-date .month {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #a0b2c6;
+  margin-top: 2px;
+}
+
+.event-details h3 {
+  color: #132e54;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.event-details p {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+/* ==========================================================================
+   PÁGINA DA ESCOLA BÍBLICA (EBD)
+   ========================================================================== */
+
+/* Banner introdutório da EBD */
+.ebd-intro-banner {
+  background: linear-gradient(135deg, #0b1f3a 0%, #1e3a8a 100%) !important;
+  color: #ffffff !important;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.ebd-intro-banner h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+.ebd-intro-banner p {
+  color: #cbd5e1 !important; /* Cinza claro de altíssimo contraste */
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  margin-top: 0.5rem;
+}
+
+/* Cartões das Classes */
+.ebd-class-card {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ebd-class-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.class-icon {
+  font-size: 2rem;
+  color: #132e54;
+}
+
+.class-badge {
+  background-color: #ededed;
+  color: #132e54;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ebd-class-card h3 {
+  color: #132e54;
+  font-size: 1.25rem;
+  margin-bottom: 0.3rem;
+}
+
+.class-teacher {
+  font-size: 0.85rem;
+  color: #6d8193;
+  margin-bottom: 0.8rem;
+}
+
+.ebd-class-card p {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Lista de Downloads de Materiais */
+.download-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.download-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.download-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ppt-icon {
+  font-size: 1.8rem;
+  color: #d97706; /* Cor laranja característica de apresentações/slides */
+}
+
+.download-info h4 {
+  color: #132e54;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.download-info p {
+  color: #64748b;
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.btn-download-sm {
+  background-color: #132e54;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-download-sm:hover {
+  background-color: #6d8193;
+}
+/* ==========================================================================
+   PÁGINA DE CONTATO
+   ========================================================================== */
+
+/* Grid em 2 Colunas no Desktop e 1 Coluna no Celular */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
+}
+
+.contact-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-md, 12px);
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #132e54;
+}
+
+.contact-title {
+  color: #132e54;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Estilização do Formulário */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #132e54;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #334155;
+  background-color: #f8fafc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #132e54;
+  box-shadow: 0 0 0 3px rgba(11, 31, 58, 0.15);
+  background-color: #ffffff;
+}
+
+.btn-submit {
+  background-color: #132e54;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+  background-color: #6d8193;
+}
+
+/* Itens de Informação de Contato */
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  color: #132e54;
+  margin-top: 0.2rem;
+}
+
+.info-item h4 {
+  color: #132e54;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.info-item p {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   SEÇÃO LIDERANÇA PASTORAL (3 PASTORES ALINHADOS)
+   ========================================================================== */
+
+.pastors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch; /* Garante que todos os cartões tenham a mesma altura */
+}
+
+/* Em telas médias ou tablets (ex: até 992px), fica em 2 ou 1 coluna */
+@media (max-width: 992px) {
+  .pastors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* Em celulares (até 768px), fica 1 cartão por linha */
+@media (max-width: 768px) {
+  .pastors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.pastor-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #132e54;
+  padding: 2rem 1.5rem;
+  overflow: hidden;
+}
+
+.pastor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.pastor-info {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.pastor-info h3 {
+  color: #132e54;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.pastor-role {
+  display: inline-block;
+  color: #6d8193;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.pastor-info p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: justify; /* Alinha o texto do texto pastoral deixando a leitura agradável */
+}
+
+/* Container que define o tamanho do "Retrato" */
+.pastor-photo-container {
+  width: 100%;     
+  aspect-ratio: 3 / 4; 
+  overflow: hidden; /* Garante que nada saia do container */
+  background-color: #f4f4f4;
+  border-radius: 8px 8px 0 0; /* Arredonda apenas os cantos superiores (opcional) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pastor-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  object-position: center; 
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO DO CARTÃO PIX E QR CODE
+   ========================================================================== */
+
+.qr-code-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem 0;
+}
+
+.qr-code-img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  padding: 0.8rem;
+  background-color: #ffffff;
+  border: 2px solid #0b1f3a;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: block;
+  margin: 0 auto;
+}
+
+.pix-instructions {
+  color: #475569;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* Grupo do campo + botão lado a lado no PC e empilhados no celular */
+
+.pix-input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  color: #0b1f3a;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.btn-pix {
+  background-color: #0b1f3a;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-pix:hover {
+  background-color: #32bcad;
+}
+
+/* Força o conteúdo do cartão PIX a ficar vertical e centralizado */
+.pix-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.pix-input-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .pix-input-group {
+    flex-direction: column;
+  }
+}
+.omf-box {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin-top: 1rem;
+}
+
+.omf-box h4 {
+  color: #166534;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.omf-box p {
+  color: #15803d;
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+/* ==========================================================================
+   REFLEXÃO PASTORAL (PÁGINA INICIAL)
+   ========================================================================== */
+.reflexao-section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* Card Principal */
+.card-reflexao,
+.reflexao-card {
+  background-color: var(--color-white);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid var(--color-primary, #132e54);
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+/* Cabeçalho do Card (CORRIGIDO) */
+.reflexao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.8rem;
+}
+
+.autor-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-aspas {
+  font-size: 1.8rem;
+  color: #32bcad;
+}
+
+.autor-info h3,
+#reflexao-autor {
+  font-size: 1.1rem;
+  color: var(--color-primary, #132e54);
+  margin: 0;
+}
+
+.reflexao-data,
+#reflexao-data {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* Tag / Badge de Identificação */
+.tag-reflexao,
+.badge-tag {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Título e Versículo */
+.reflexao-titulo,
+#reflexao-titulo {
+  font-size: 1.25rem;
+  color: var(--color-primary, #132e54);
+  margin-bottom: 0.8rem;
+}
+
+#reflexao-verso {
+  font-style: italic;
+  color: var(--color-secondary, #6d8193);
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-primary, #132e54);
+}
+
+/* Corpo do Texto Principal */
+.reflexao-body p,
+#reflexao-texto {
+  text-align: justify;
+  line-height: 1.6;
+  color: #334155;
+  font-size: 0.98rem;
+  margin-bottom: 1.5rem;
+  hyphens: auto;
+}
+
+/* Rodapé do Card e Links */
+.reflexao-footer {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.btn-ler-mais,
+.link-lideranca {
+  display: inline-block;
+  color: var(--color-primary, #132e54);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.btn-ler-mais:hover,
+.link-lideranca:hover {
+  color: #32bcad;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   GALERIA DE FAMÍLIAS PASTORAIS (PÁGINA SOBRE NÓS)
+   ========================================================================== */
+.family-section {
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.family-subtitle {
+  text-align: center;
+  color: var(--color-secondary);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.family-card {
+  background-color: var(--bg-card, var(--color-white));
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  border-top: 4px solid var(--color-primary);
+}
+
+.family-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.family-photo-container {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Formato paisagem harmonioso para fotos de grupo/família */
+  overflow: hidden;
+  background-color: #f4f4f4;
+}
+
+.family-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Preenche o espaço mantendo o enquadramento bonito */
+  object-position: center;
+}
+
+.family-info {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.family-info h3 {
+  color: var(--text-color-primary, var(--color-primary));
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.family-info p {
+  color: var(--text-color-secondary, #64748b);
+  font-size: 0.9rem;
+}
+
+/* Justifica o texto dos parágrafos dentro dos cards de áreas/ministérios */
+.card p,
+.area-card p,
+.area-description {
+  text-align: justify;
+  /* Evita espaços muito grandes entre as palavras ao justificar em colunas estreitas */
+  hyphens: auto; 
+}
+
+/* Se as citações/visões também usarem <blockquote> ou a classe da visão: */
+.card blockquote,
+.vision-box {
+  text-align: justify;
+}
+
+/* ==========================================================================
+   AJUSTE DE NAVEGAÇÃO E MENU HAMBÚRGUER (MODO HORIZONTAL / LANDSCAPE)
+   ========================================================================== */
+
+/* Ajusta o espaçamento do cabeçalho em telas pequenas e na horizontal */
+.header-container,
+.nav-container,
+header .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 1.2rem !important;  /* Traz o logo e o menu para perto das bordas */
+  padding-right: 1.2rem !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilização e destaque do Botão Hambúrguer */
+.menu-toggle,
+.hamburger-btn,
+.btn-menu {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid var(--color-accent-blue, #32bcad); /* Borda visível para destacar */
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Cor das três linhas ou do ícone do hambúrguer */
+.menu-toggle i,
+.menu-toggle .bar,
+.hamburger-btn i,
+.hamburger-btn span {
+  color: #ffffff !important;           /* Deixa o ícone/linhas brancos */
+  background-color: #ffffff;           /* Se o menu for feito de varetas/divs */
+  font-size: 1.5rem;
+}
+
+/* Destaque no Modo Escuro */
+body.dark-theme .menu-toggle,
+body.dark-mode .menu-toggle {
+  border-color: #32bcad !important;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .menu-toggle i,
+body.dark-mode .menu-toggle i {
+  color: #ffffff !important;
 }
