@@ -64,12 +64,12 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .navbar {
-  max-width: 1200px; /* Alinha o conteúdo centralizado com o restante do site */
+  max-width: 80vw
   margin: 0 auto;    /* Centraliza os elementos no meio da barra azul */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 2rem; /* Adiciona 32px de folga/respiro nas laterais */
+  padding: 0.8rem 1.5rem; /* Adiciona 32px de folga/respiro nas laterais */
   box-sizing: border-box;
 }
 
