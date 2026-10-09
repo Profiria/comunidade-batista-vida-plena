@@ -1,6 +1,6 @@
 # Comunidade Batista Vida Plena (CBVP)
 
-Website institucional da **Comunidade Batista Vida Plena**, desenvolvido como projeto prático de Front-End Web.
+Website institucional da **Comunidade Batista Vida Plena**.
 
 ## 🚀 Tecnologias Utilizadas
 - HTML5
@@ -13,7 +13,7 @@ Website institucional da **Comunidade Batista Vida Plena**, desenvolvido como pr
 - `sobre.html` - História, Pilares e Liderança Pastoral
 - `programacao.html` - Horários e cultos semanais
 - `ebd.html` - Informações da Escola Bíblica
-- `ministerios.html` - Áreas de atuação da igreja
+- `areas.html` - Áreas de atuação da igreja
 - `contribuicao.html` - Dados bancários e Copiar Chave PIX
 - `missoes.html` - Visão missionária e sistema OMF (,07)
 - `contato.html` - Formulário de contato e triagem
