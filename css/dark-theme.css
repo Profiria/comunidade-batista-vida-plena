@@ -180,20 +180,17 @@ body.dark-mode .family-info p {
   color: #94a3b8 !important; /* Subtítulo em cinza claro */
 }
 
-/* ==========================================================================
-   REFLEXÃO MENSAL NO TEMA ESCURO
-   ========================================================================== */
-
+/* AJUSTA O TOM DO CARD DE REFLEXÃO PARA IGUALAR AOS DEMAIS CARDS */
 body.dark-theme .card-reflexao,
 body.dark-mode .card-reflexao,
 body.dark-theme .reflexao-card,
 body.dark-mode .reflexao-card {
-  background-color: #1e293b !important; /* Tom azul escuro/noturno do tema */
-  border-top-color: #32bcad !important;   /* Borda azul/turquesa de destaque */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  background-color: #1e293b !important; /* Mesmo tom azul/grafite dos outros cards */
+  border-top: 3px solid #32bcad !important; /* Borda turquesa igual aos outros */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Cores dos textos internos no modo escuro */
+/* Garante o contraste dos textos e links internos */
 body.dark-theme .card-reflexao h3,
 body.dark-theme .card-reflexao h4,
 body.dark-mode .card-reflexao h3,
@@ -210,4 +207,10 @@ body.dark-theme #reflexao-verso,
 body.dark-mode #reflexao-verso {
   color: #94a3b8 !important;
   border-left-color: #32bcad !important;
+}
+
+/* Cor do link "Conheça nossa liderança" no modo escuro */
+body.dark-theme .link-lideranca,
+body.dark-mode .link-lideranca {
+  color: #32bcad !important;
 }
