@@ -98,7 +98,7 @@ h1, h2, h3, h4, h5, h6,
   gap: 0.8rem;                   /* Espaçamento entre as opções */
   align-items: center;
   margin: 0;
-  padding: 0;
+  padding: 0.8rem 2rem;
 }
 
 .nav-link {
@@ -316,9 +316,10 @@ h1, h2, h3, h4, h5, h6,
 .header-social {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  flex-shrink: 0; /* Impede que o bloco seja espremido ou jogado pra fora */
-  margin-left: 0.5rem
+  gap: 0.8rem;            /* Espaço entre cada ícone */
+  flex-shrink: 0;         /* Impede que o bloco seja espremido */
+  margin-left: 0.5rem;
+  margin-right: 1.5rem;   /* AFAM : Dá o respiro no canto direito da tela */
 }
 
 .social-icon {
@@ -330,7 +331,7 @@ h1, h2, h3, h4, h5, h6,
 
 .social-icon:hover {
   color: var(--color-hover);
-  transform: translateY(-2px); /* Efeito suave de elevação ao passar o rato */
+  transform: translateY(-2px);
 }
 
 /* Ajuste Responsivo para Mobile */
