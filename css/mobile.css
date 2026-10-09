@@ -199,3 +199,46 @@
     color: #32bcad !important;
   }
 }
+
+/* ==========================================================================
+   AJUSTE DE MODO LANDSCAPE (Apenas em Celulares/Tablets)
+   ========================================================================== */
+
+@media screen and (orientation: landscape) and (max-width: 900px) {
+
+  /* 1. Faz a navbar ocupar toda a largura da tela no celular deitado */
+  .navbar {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.4rem 1rem !important; /* Margemzinha de segurança nas pontas */
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Deixa a fonte e o espaçamento dos links mais compactos para caber tudo na linha */
+  .nav-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.35rem !important; /* Aproxima ligeiramente um link do outro */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .nav-menu a,
+  .nav-link {
+    font-size: 0.72rem !important; /* Fonte levemente menor só no celular deitado */
+    padding: 0.2rem 0.3rem !important;
+    white-space: nowrap !important;
+  }
+
+  /* 3. Garante espaço para os ícones no canto direito */
+  .header-social,
+  .social-icons {
+    gap: 0.5rem !important;
+    margin-right: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .social-icon {
+    font-size: 1.1rem !important;
+  }
+}
