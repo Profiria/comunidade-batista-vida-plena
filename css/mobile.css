@@ -131,57 +131,81 @@
 }
 
 /* ==========================================================================
-   MENU COMPACTO E FAIXA TOTAL PARA MODO HORIZONTAL (LANDSCAPE)
+   CORREÇÃO DEFINITIVA DO MENU E FAIXA TOTAL EM MODO LANDSCAPE
    ========================================================================== */
 
-@media screen and (orientation: landscape) and (max-height: 500px) {
+/* Remove a restrição de altura para pegar QUALQUER celular na horizontal */
+@media screen and (orientation: landscape) {
 
-  /* 1. ESTICA A FAIXA AZUL DO TOPO DE PONTA A PONTA NA TELA */
-  header,
-  .header,
-  .site-header {
-    width: 100% !important;
-    max-width: 100vw !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background-color: var(--color-primary, #132e54) !important;
+  /* 1. ESTICA O TOPO E O CORPO DA PÁGINA DE PONTA A PONTA */
+  html, body {
+    max-width: 100% !important;
+    overflow-x: hidden;
   }
 
-  /* 2. ESPALHA O CONTEÚDO DENTRO DA FAIXA SEM TRAVAR EM MAX-WIDTH */
+  header,
+  .header,
+  .site-header,
+  .navbar,
+  nav {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important; /* Força a barra a sangrar até as bordas da tela */
+    margin-right: calc(-50vw + 50%) !important;
+    padding: 0 !important;
+    background-color: #132e54 !important; /* Cor da barra azul */
+    box-sizing: border-box !important;
+  }
+
+  /* 2. ESPALHA O CONTEÚDO INTERNO POR TODA A LARGURA */
   .header-container,
   .nav-container,
-  header .container {
+  header .container,
+  .container-header {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0.5rem 1.2rem !important;
+    box-sizing: border-box !important;
   }
 
-  /* 3. OCULTA O BOTÃO HAMBÚRGUER NO MODO HORIZONTAL */
+  /* 3. SOME DEFINITIVAMENTE COM QUALQUER TIPO DE BOTÃO HAMBÚRGUER */
   .menu-toggle,
+  .hamburger,
   .hamburger-btn,
-  .btn-menu {
+  .btn-menu,
+  .navbar-toggler,
+  #menu-toggle,
+  [class*="hamb"] {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
-  /* 4. ORGANIZA OS LINKS EM LINHA RETA HORIZONTAL */
+  /* 4. EXIBE A LISTA DE MENUS EM LINHA NA FAIXA */
   .nav-menu,
   .menu-links,
-  nav ul {
+  nav ul,
+  .nav-list {
     display: flex !important;
     flex-direction: row !important;
     position: static !important;
+    transform: none !important;
     background: transparent !important;
     box-shadow: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    gap: 0.8rem !important; /* Espaçamento ajustado para caber com folga */
+    gap: 0.6rem !important;
     width: auto !important;
+    height: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
-  /* 5. ESTILIZAÇÃO DOS LINKS COMPACTOS */
   .nav-menu li,
   nav ul li {
     list-style: none !important;
@@ -190,8 +214,8 @@
 
   .nav-menu a,
   nav ul a {
-    font-size: 0.85rem !important;
-    padding: 0.3rem 0.5rem !important;
+    font-size: 0.8rem !important; /* Tamanho ajustado para caber perfeitamente na barra */
+    padding: 0.3rem 0.4rem !important;
     color: #ffffff !important;
     text-decoration: none !important;
     white-space: nowrap !important;
