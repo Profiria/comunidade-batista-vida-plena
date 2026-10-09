@@ -131,25 +131,61 @@
 }
 
 /* ==========================================================================
-   AJUSTE EXCLUSIVO PARA CELULAR NA HORIZONTAL (LANDSCAPE)
+   MENU COMPACTO EM LINHA PARA MODO HORIZONTAL (LANDSCAPE)
    ========================================================================== */
+
 @media screen and (orientation: landscape) and (max-height: 500px) {
   
-  /* Ajusta os recuos do cabeçalho sem afetar o modo em pé ou computador */
+  /* Ajusta o container do topo */
   .header-container,
-  .nav-container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .nav-container,
+  header .container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.5rem 1.5rem !important;
   }
 
-  /* Garante o contraste do botão do menu no tema escuro */
-  body.dark-theme .menu-toggle,
-  body.dark-mode .menu-toggle {
-    border: 1px solid var(--color-accent-blue, #32bcad);
+  /* Oculta o botão hambúrguer no modo horizontal */
+  .menu-toggle,
+  .hamburger-btn,
+  .btn-menu {
+    display: none !important;
   }
 
-  body.dark-theme .menu-toggle i,
-  body.dark-mode .menu-toggle i {
-    color: #ffffff;
+  /* Força a lista do menu a ficar visível e em linha reta (horizontal) */
+  .nav-menu,
+  .menu-links,
+  nav ul {
+    display: flex !important;
+    flex-direction: row !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 1rem !important; /* Espaçamento entre as opções do menu */
+    width: auto !important;
+  }
+
+  /* Estiliza cada item/link para ficar compacto e legível */
+  .nav-menu li,
+  nav ul li {
+    list-style: none !important;
+    margin: 0 !important;
+  }
+
+  .nav-menu a,
+  nav ul a {
+    font-size: 0.85rem !important; /* Fonte levemente menor para caber tudo na faixa */
+    padding: 0.3rem 0.6rem !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    white-space: nowrap !important; /* Impede que o texto do link quebre em duas linhas */
+  }
+
+  .nav-menu a:hover,
+  nav ul a:hover {
+    color: #32bcad !important;
   }
 }
