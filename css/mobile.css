@@ -242,3 +242,27 @@
     font-size: 1.1rem !important;
   }
 }
+
+/* ==========================================================================
+   AJUSTE APENAS PARA CELULAR EM PÉ (PORTRAIT - Tela até 768px)
+   ========================================================================== */
+
+@media (max-width: 768px) and (orientation: portrait) {
+
+  /* Restaura a largura total da navbar para afastar os ícones do centro */
+  .navbar {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.6rem 1.2rem !important; /* Dá um respiro suave de 19px nas pontas */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Mantém o alinhamento dos ícones da direita e hambúrguer */
+  .header-social,
+  .social-icons {
+    gap: 0.6rem !important;
+  }
+}
